@@ -12,6 +12,9 @@
 
  fichier csv - pour pré-inscription
  inscription avec mail 3il - puis mail de confirmation pour verif mail (& token inscription val)
+<<<<<<< HEAD
 
 
  
+=======
+>>>>>>> Sandrine
