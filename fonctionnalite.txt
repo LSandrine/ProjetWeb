@@ -1,0 +1,14 @@
+- Calendrier des devoirs (deadline) / des devoirs surveillés;
+
+ - Statut des devoirs (élèves);
+
+ - Ajout/Supp/Modif des devoirs (délègué);
+
+ - lien stockage (touscom) ou lien drive (dropbox, googledrive) des DS précédents.
+
+
+!!! - Gestion des users => Securite !!!
+ Administrateur (ecran de validation pour rôle délégué par ex)
+
+ fichier csv - pour pré-inscription
+ inscription avec mail 3il - puis mail de confirmation pour verif mail (& token inscription val)
