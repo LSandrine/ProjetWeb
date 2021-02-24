@@ -1,6 +1,8 @@
 <?php
-
 /*
+* @class Database
+* @author Sandrine Latour
+*
 * EN COURS DE DEVELOPPEMENT
 * Test de la database
 */
