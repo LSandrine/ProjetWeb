@@ -1,4 +1,8 @@
 <?php
+/*
+* @class Database
+* @author Sandrine Latour
+*/
 class UtilisateurManager{
 	private $bd;
 
