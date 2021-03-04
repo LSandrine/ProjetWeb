@@ -1,4 +1,4 @@
-- Calendrier des devoirs (deadline) / des devoirs surveillés;
+ - Calendrier des devoirs (deadline) / des devoirs surveillés;
 
  - Statut des devoirs (élèves);
 
@@ -15,6 +15,6 @@
 <<<<<<< HEAD
 
 
- 
+
 =======
 >>>>>>> Sandrine
