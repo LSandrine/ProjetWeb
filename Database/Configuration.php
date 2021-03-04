@@ -1,7 +1,7 @@
 <?php
 /*
 * @class Configuration
-* @author Sandrine Latour
+* @author  Latour Renut Timimi
 */
 
 

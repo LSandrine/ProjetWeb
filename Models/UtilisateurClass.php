@@ -1,7 +1,7 @@
 <?php
 /*
 * @class Database
-* @author Sandrine Latour
+* @author  Latour Renut Timimi
 */
 class Utilisateur{
 	private $idUtilisateur;

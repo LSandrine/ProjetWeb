@@ -1,7 +1,7 @@
 <?php
 /*
 * @class Database
-* @author Sandrine Latour
+* @author  Latour Renut Timimi
 *
 * EN COURS DE DEVELOPPEMENT
 * Test de la database
