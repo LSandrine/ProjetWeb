@@ -1,7 +1,7 @@
 <?php
 /*
 * @class Database
-* @author Sandrine Latour
+* @author  Latour Renut Timimi
 */
 require_once 'Configuration.php';
 
