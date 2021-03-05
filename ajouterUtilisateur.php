@@ -2,7 +2,7 @@
 
 require("menu.php");
 
- ?>
+ ?> 
 
 
 <body>
