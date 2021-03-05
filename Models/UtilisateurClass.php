@@ -8,6 +8,7 @@ class Utilisateur{
 	private $mail;
 	private $mdp;
 	private $idClasse;
+	private $classeUt;
 
 	public function __construct($valeurs = array()){
 		if(!empty($valeurs)){
@@ -17,6 +18,7 @@ class Utilisateur{
 
 	public function affecte($donnee){
 		foreach($donnee as $attribut => $valeur){
+			$classeUt = new Classe();
 			switch($attribut){
 				case 'idUtilisateur':
 					$this->setUtId($valeur);
@@ -27,8 +29,20 @@ class Utilisateur{
 				case 'mdp':
 					$this->setUtmdp($valeur);
 					break;
-				case 'idClasse':
-					$this->setUtClass($valeur);
+				case 'utilisateur.idClasse':
+					$this->setUtClassId($valeur);
+					break;
+				case 'classe.idClasse':
+					$classeUt->setClassId($valeur);
+					break;
+				case 'classe.promotion':
+					$classeUt->setClassPromo($valeur);
+					break;
+				case 'classe.groupe':
+					$classeUt->setClassGrp($valeur);
+					break;
+				case 'classe.anneeDiplome':
+					$classeUt->setClassDip($valeur);
 					break;
 			}
 		}
@@ -43,8 +57,11 @@ class Utilisateur{
 	public function setUtmdp($valeur){
 		$this->mdp = $valeur;
 	}
-	public function setUtClass($valeur){
+	public function setUtClassId($valeur){
 		$this->idClasse = $valeur;
+	}
+	public function setUtClass($valeur){
+		$this->classeUt = $valeur;
 	}
 
 	public function getUtId(){
@@ -56,7 +73,10 @@ class Utilisateur{
 	public function getUtmdp(){
 		return $this->mdp;
 	}
-	public function getUtClass(){
+	public function getUtClassId(){
 		return $this->idClasse;
+	}
+	public function getUtClass(){
+		return $this->classeUt;
 	}
 }
