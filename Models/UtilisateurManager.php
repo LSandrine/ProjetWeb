@@ -39,7 +39,4 @@ class UtilisateurManager{
 		$req->closeCursor();
 		return $utilisateur;
 	}
-		public function tmp(){
-			//ceci est une fonction pour test git 2 secondes
-		}
 }
