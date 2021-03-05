@@ -29,19 +29,19 @@ class Utilisateur{
 				case 'mdp':
 					$this->setUtmdp($valeur);
 					break;
-				case 'utilisateur.idClasse':
+				case 'idClasse':
 					$this->setUtClassId($valeur);
 					break;
-				case 'classe.idClasse':
+				case 'idClasse':
 					$classeUt->setClassId($valeur);
 					break;
-				case 'classe.promotion':
+				case 'promotion':
 					$classeUt->setClassPromo($valeur);
 					break;
-				case 'classe.groupe':
+				case 'groupe':
 					$classeUt->setClassGrp($valeur);
 					break;
-				case 'classe.anneeDiplome':
+				case 'anneeDiplome':
 					$classeUt->setClassDip($valeur);
 					break;
 			}

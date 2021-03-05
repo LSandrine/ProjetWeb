@@ -18,7 +18,6 @@ class Evenement{
 			$this->affecte($valeurs);
 		}
 	}
-
   	public function affecte($donnee){
   		foreach($donnee as $attribut => $valeur){
   			switch($attribut){
