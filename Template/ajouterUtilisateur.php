@@ -2,7 +2,7 @@
 
 include("menu.php");
 
- ?>
+ ?> 
 
 <body>
  <div class="container">
