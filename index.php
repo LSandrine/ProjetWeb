@@ -18,8 +18,10 @@
   $db = Database::getInstance();
   print_r($db);
   $A = new UtilisateurManager($db);
+  $B = new ClasseManager($db);
 
   echo '<pre>';
   print_r($A->getAll());
+  print_r($B->getAll());
   echo '</pre>';
 ?>
