@@ -1,8 +1,9 @@
 <?php
 
-include("menu.php");
+require("menu.php");
 
  ?>
+
 
 <body>
  <div class="container">
@@ -14,22 +15,16 @@ include("menu.php");
   <form action="" method="post">
             <div class="preview text-center">
                 <img class="preview-img" src="http://simpleicon.com/wp-content/uploads/account.png" alt="Preview Image" width="200" height="200"/>
-                <div class="browse-button">
-                    <i class="fa fa-pencil-alt"></i>
-                    <input class="browse-input" type="file" required name="UploadedFile" id="UploadedFile"/>
-                </div>
+
                 <span class="Error"></span>
             </div>
+
             <div class="form-group">
-                <label>Nom prÃ©nom:</label>
-                <input class="form-control" type="text" name="fullname" required placeholder="Enter Your Full Name"/>
-                <span class="Error"></span>
-            </div>
-            <div class="form-group">
-                <label>mail:</label>
+                <label>mail de 3il:</label>
                 <input class="form-control" type="email" name="email" required placeholder="Enter Your Email"/>
                 <span class="Error"></span>
             </div>
+
             <div class="form-group">
                 <label>mot de passse:</label>
                 <input class="form-control" type="password" name="password" required placeholder="Enter Password"/>
@@ -43,7 +38,7 @@ include("menu.php");
                 <span class="Error"></span>
             </div>
             <div class="form-group">
-                <input class="btn btn-primary btn-block" type="submit" value="Submit"/>
+                <input class="btn btn-primary btn-block" type="submit" value="Incription"/>
             </div>
         </form>
 
