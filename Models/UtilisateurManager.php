@@ -1,6 +1,6 @@
 <?php
 /*
-* @class Database
+* @class User
 * @author  Latour Renut Timimi
 * class + objt (ajout des listes event de l'utilisateur)
 * travaille par fonct (agile like)

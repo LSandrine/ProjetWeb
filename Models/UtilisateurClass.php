@@ -1,6 +1,6 @@
 <?php
 /*
-* @class Database
+* @class User
 * @author  Latour Renut Timimi
 */
 class Utilisateur{
