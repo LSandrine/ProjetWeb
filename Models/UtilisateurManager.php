@@ -33,7 +33,7 @@ class UtilisateurManager{
 
 	public function getUtilisateurById($id){
 		$req = $this->bd->prepare('SELECT idUtilisateur, mail, mdp, idClasse FROM utilisateur WHERE idUtilisateur = :idUtilisateur;');
-		$req->bindValue(':idUtilisateur', $id, PDO::PARAM_STR);
+		$req->bindValue(':idUtilisateur', $id, PDO::PARAM_INT);
 		$req->execute();
 		$utilisateur = new Utilisateur($req->fetch(PDO::FETCH_OBJ));
 		$req->closeCursor();
