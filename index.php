@@ -17,7 +17,7 @@
   print_r($db);
   $A = new UtilisateurManager($db);
 
-  echo '<pre>';
+  echo '<pre> ooookkkkk';
   print_r($A->getAll());
   echo '</pre>';
 ?>
