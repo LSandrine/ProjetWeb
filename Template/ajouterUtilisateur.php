@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD:ajouterUtilisateur.php
 require("menu.php");
 <<<<<<< HEAD
 include_once 'Models/ClasseManager.php';
@@ -8,10 +9,12 @@ $db = Database::getInstance();
 $ClasseManager=new ClasseManager($db);
  ?>
 =======
+=======
+include("menu.php");
+>>>>>>> main:Template/ajouterUtilisateur.php
 
  ?> 
 >>>>>>> Ikram
-
 
 <body>
  <div class="container">
@@ -23,16 +26,22 @@ $ClasseManager=new ClasseManager($db);
   <form action="" method="post">
             <div class="preview text-center">
                 <img class="preview-img" src="http://simpleicon.com/wp-content/uploads/account.png" alt="Preview Image" width="200" height="200"/>
-
+                <div class="browse-button">
+                    <i class="fa fa-pencil-alt"></i>
+                    <input class="browse-input" type="file" required name="UploadedFile" id="UploadedFile"/>
+                </div>
                 <span class="Error"></span>
             </div>
-
             <div class="form-group">
-                <label>mail de 3il:</label>
+                <label>Nom prÃ©nom:</label>
+                <input class="form-control" type="text" name="fullname" required placeholder="Enter Your Full Name"/>
+                <span class="Error"></span>
+            </div>
+            <div class="form-group">
+                <label>mail:</label>
                 <input class="form-control" type="email" name="email" required placeholder="Enter Your Email"/>
                 <span class="Error"></span>
             </div>
-
             <div class="form-group">
                 <label>mot de passse:</label>
                 <input class="form-control" type="password" name="password" required placeholder="Enter Password"/>
@@ -62,7 +71,7 @@ $ClasseManager=new ClasseManager($db);
                 <span class="Error"></span>
             </div>
             <div class="form-group">
-                <input class="btn btn-primary btn-block" type="submit" value="Incription"/>
+                <input class="btn btn-primary btn-block" type="submit" value="Submit"/>
             </div>
         </form>
 

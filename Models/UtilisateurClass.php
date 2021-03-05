@@ -18,7 +18,6 @@ class Utilisateur{
 	}
 	public function affecte($donnee){
 		foreach($donnee as $attribut => $valeur){
-			$classeUt = new Classe();
 			switch($attribut){
 				case 'idUtilisateur':
 					$this->setUtId($valeur);
@@ -32,19 +31,8 @@ class Utilisateur{
 				case 'idClasse':
 					$this->setUtClassId($valeur);
 					break;
-				case 'idClasse':
-					$classeUt->setClassId($valeur);
-					break;
-				case 'promotion':
-					$classeUt->setClassPromo($valeur);
-					break;
-				case 'groupe':
-					$classeUt->setClassGrp($valeur);
-					break;
-				case 'anneeDiplome':
-					$classeUt->setClassDip($valeur);
-					break;
 			}
+			$this->classeUt = new Classe($this->idClasse);
 		}
   }
 
