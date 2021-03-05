@@ -23,7 +23,7 @@ class UtilisateurManager{
 
 	public function getAll(){
 		$ListeUt = array();
-		$req = $this->bd->query('SELECT idUtilisateur, mail, mdp, u.idClasse,c.idClasse,c.promotion,c.groupe,c.anneeDiplome FROM utilisateur u INNER JOIN classe c ON u.idClasse = c.idClasse;');
+		$req = $this->bd->query('SELECT idUtilisateur, mail, mdp, idClasse FROM utilisateur;');
 		while ($utilisateur = $req->fetch(PDO::FETCH_OBJ) ) {
 			$ListeUt[] = new Utilisateur($utilisateur);
 		}
