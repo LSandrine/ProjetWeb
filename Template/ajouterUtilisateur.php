@@ -1,20 +1,12 @@
 <?php
 
-<<<<<<< HEAD:ajouterUtilisateur.php
-require("menu.php");
-<<<<<<< HEAD
-include_once 'Models/ClasseManager.php';
-Configuration::setConfigurationFile('database/configuration.ini');
+require("../menu.php");
+include_once '../Models/ClasseManager.php';
+Configuration::setConfigurationFile('../database/configuration.ini');
 $db = Database::getInstance();
 $ClasseManager=new ClasseManager($db);
  ?>
-=======
-=======
-include("menu.php");
->>>>>>> main:Template/ajouterUtilisateur.php
 
- ?> 
->>>>>>> Ikram
 
 <body>
  <div class="container">
@@ -32,13 +24,9 @@ include("menu.php");
                 </div>
                 <span class="Error"></span>
             </div>
+
             <div class="form-group">
-                <label>Nom prÃ©nom:</label>
-                <input class="form-control" type="text" name="fullname" required placeholder="Enter Your Full Name"/>
-                <span class="Error"></span>
-            </div>
-            <div class="form-group">
-                <label>mail:</label>
+                <label>mail 3il:</label>
                 <input class="form-control" type="email" name="email" required placeholder="Enter Your Email"/>
                 <span class="Error"></span>
             </div>
