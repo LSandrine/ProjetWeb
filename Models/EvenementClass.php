@@ -1,6 +1,6 @@
 <?php
 /*
-* @class Database
+* @class Event
 * @author Latour Renut Timimi
 */
 class Evenement{
@@ -98,5 +98,3 @@ class Evenement{
   	public function getEvType(){
   		return $this->idEvenement;
   	}
-
-    

@@ -1,6 +1,6 @@
 <?php
 /*
-* @class Database
+* @class Event Manager
 * @author  Latour Renut Timimi
 */
 class EvenementManager{
@@ -24,10 +24,22 @@ class EvenementManager{
 	}
 
 
+		public function getAll(){
+			$ListeEv = array();
+			$req = $this->bd->query('SELECT idEvenement, nom, date, description, matiere, typeRendu, idClasse, idType FROM evenement;');
+			while ($evenement = $req->fetch(PDO::FETCH_OBJ) ) {
+				$ListeEv[] = new Evenement($evenement);
+			}
+			$req->closeCursor();
+			return $ListeEv;
+		}
+
 		public function getEvenementById($id){
 			$req = $this->bd->prepare('SELECT idEvenement, nom, date, description, matiere, typeRendu, idClasse, idType FROM evenement WHERE idEvenement = :idEvenement;');
 			$req->bindValue(':idEvenement', $id, PDO::PARAM_INT);
 			$req->execute();
-			$utilisateur = new Evenement($req->fetch(PDO::FETCH_OBJ));
+			$evenement = new Evenement($req->fetch(PDO::FETCH_OBJ));
 			$req->closeCursor();
 			return $evenement;
+		}
+	}
