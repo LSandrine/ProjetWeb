@@ -23,5 +23,3 @@
   print_r($A->getAll());
   echo '</pre>';
 ?>
-coucoucoucoucoucoucoucocuoc je fais une erreur
-mais je suis ignore
