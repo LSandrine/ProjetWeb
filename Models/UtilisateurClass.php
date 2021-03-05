@@ -3,6 +3,7 @@
 * @class User
 * @author  Latour Renut Timimi
 */
+
 class Utilisateur{
 	private $idUtilisateur;
 	private $mail;
@@ -15,7 +16,6 @@ class Utilisateur{
 			$this->affecte($valeurs);
 		}
 	}
-
 	public function affecte($donnee){
 		foreach($donnee as $attribut => $valeur){
 			$classeUt = new Classe();
