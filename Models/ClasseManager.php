@@ -23,7 +23,7 @@ class ClasseManager{
 		$ListeClass = array();
 		$req = $this->bd->query('SELECT idClasse, promotion, groupe, anneeDiplome FROM classe;');
 		while ($classe = $req->fetch(PDO::FETCH_OBJ) ) {
-			$ListeClass[] = new Evenement($classe);
+			$ListeClass[] = new Classe($classe);
 		}
 		$req->closeCursor();
 		return $ListeClass;
