@@ -32,7 +32,9 @@ class Utilisateur{
 					$this->setUtClassId($valeur);
 					break;
 			}
-			$this->classeUt = new Classe($this->idClasse);
+			$db = Database::getInstance();
+			$manager = new ClasseManager($db);
+			$this->classeUt = $manager->getClasseById($this->getUtClassId());
 		}
   }
 
