@@ -11,13 +11,17 @@
   require_once "Database/Database.php";
   require_once "Models/UtilisateurClass.php";
   require_once "Models/UtilisateurManager.php";
+  require_once "Models/ClasseClass.php";
+  require_once "Models/ClasseManager.php";
 
   Configuration::setConfigurationFile('database/configuration.ini');
   $db = Database::getInstance();
   print_r($db);
   $A = new UtilisateurManager($db);
 
-  echo '<pre> ooookkkkk';
+  echo '<pre>';
   print_r($A->getAll());
   echo '</pre>';
 ?>
+coucoucoucoucoucoucoucocuoc je fais une erreur
+mais je suis ignore
