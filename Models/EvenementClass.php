@@ -50,9 +50,9 @@ class Evenement{
   			}
 				$db = Database::getInstance();
 				$classe = new ClasseManager($db);
-				//$matiere = new MatiereManager($db);
+				$matiere = new MatiereManager($db);
 				$this->classeEvt = $classe->getClasseById($this->getEvClassId());
-				//$this->matiereEvt = $matiere->getMatById($this->getEvMatId());
+				$this->matiereEvt = $matiere->getMatById($this->getEvMatId());
   		}
     }
 
