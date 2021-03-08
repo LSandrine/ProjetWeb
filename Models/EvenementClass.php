@@ -8,9 +8,11 @@ class Evenement{
 	private $nom;
 	private $date;
 	private $description;
-	private $matiere;
+	private $idMatiere;
+	private $matiereEvt;
 	private $typeRendu;
 	private $idClasse;
+	private $classeEvt;
 	private $idType;
 
 	public function __construct($valeurs = array()){
@@ -22,30 +24,35 @@ class Evenement{
   		foreach($donnee as $attribut => $valeur){
   			switch($attribut){
   				case 'idEvenement':
-  					$this->setUtId($valeur);
+  					$this->setEvId($valeur);
   					break;
   				case 'nom':
-  					$this->setUtMail($valeur);
+  					$this->setEvNom($valeur);
   					break;
   				case 'date':
-  					$this->setUtmdp($valeur);
+  					$this->setEvDate($valeur);
   					break;
   				case 'description':
-  					$this->setUtClass($valeur);
+  					$this->setEvDesc($valeur);
   					break;
-  				case 'matiere':
-  					$this->setUtClass($valeur);
+  				case 'idMatiere':
+  					$this->setEvMatId($valeur);
   					break;
   				case 'typeRendu':
-  					$this->setUtClass($valeur);
+  					$this->setEvRendu($valeur);
   					break;
   				case 'idClass':
-  					$this->setUtClass($valeur);
+  					$this->setEvClassId($valeur);
   					break;
   				case 'idType':
-  					$this->setUtClass($valeur);
+  					$this->setEvType($valeur);
   					break;
   			}
+				$db = Database::getInstance();
+				$classe = new ClasseManager($db);
+				//$matiere = new MatiereManager($db);
+				$this->classeEvt = $classe->getClasseById($this->getEvClassId());
+				//$this->matiereEvt = $matiere->getMatById($this->getEvMatId());
   		}
     }
 
@@ -56,44 +63,50 @@ class Evenement{
   		$this->nom = $valeur;
   	}
   	public function setEvDate($valeur){
-  		$this->nom = $valeur;
+  		$this->date = $valeur;
   	}
   	public function setEvDesc($valeur){
-  		$this->nom = $valeur;
+  		$this->description = $valeur;
   	}
-  	public function setEvMat($valeur){
-  		$this->nom = $valeur;
+  	public function setEvMatId($valeur){
+  		$this->idMatiere = $valeur;
   	}
   	public function setEvRendu($valeur){
-  		$this->nom = $valeur;
+  		$this->typeRendu = $valeur;
   	}
-  	public function setEvClass($valeur){
-  		$this->nom = $valeur;
+  	public function setEvClassId($valeur){
+  		$this->idClass = $valeur;
+  	}
+  	public function setEvClasse($valeur){
+  		$this->classeEvt = $valeur;
   	}
   	public function setEvType($valeur){
-  		$this->nom = $valeur;
+  		$this->type = $valeur;
   	}
   	public function getEvId(){
   		return $this->idEvenement;
   	}
   	public function getEvNom(){
-  		return $this->idEvenement;
+  		return $this->nom;
   	}
   	public function getEvDate(){
-  		return $this->idEvenement;
+  		return $this->date;
   	}
   	public function getEvDesc(){
-  		return $this->idEvenement;
+  		return $this->description;
   	}
-  	public function getEvMat(){
-  		return $this->idEvenement;
+  	public function getEvMatId(){
+  		return $this->idMatiere;
   	}
   	public function getEvRendu(){
-  		return $this->idEvenement;
+  		return $this->typeRendu;
+  	}
+  	public function getEvClassId(){
+  		return $this->idClasse;
   	}
   	public function getEvClass(){
-  		return $this->idEvenement;
+  		return $this->classeEvt;
   	}
   	public function getEvType(){
-  		return $this->idEvenement;
+  		return $this->type;
   	}
