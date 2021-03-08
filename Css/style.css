@@ -1,6 +1,5 @@
 html,body
 {
-    width: 500px;
     margin: auto;
 }
 .container
@@ -81,4 +80,9 @@ html,body
 .Back
 {
     font-size: 25px;
+}
+
+table, th, td, .semainier
+{
+    text-align: center;
 }
