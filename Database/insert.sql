@@ -38,10 +38,10 @@ INSERT INTO `typeevenement` (`nom`) VALUES
 ('SOUTENANCE'),
 ('DSM')
 ;
-INSERT INTO `evenement` (`nom`, `date`, `description`, `matiere`, `typeRendu`, `idClasse`, `idType`) VALUES
-('DS Electronique', '2021-06-18', 'Loi d\'ohm, loi des noeuds, etc. à apprendre par cœur !', 'Electronique', '', '19', '1'),
-('EI AnaNum', '2021-04-15', 'Euler Taylor2 RungeKutta', 'Analyse numérique', '', '1', '2'),
-('DS Sécurité', '2021-01-12', '', 'Sécurité', '', '2', '1')
+INSERT INTO `evenement` (`nom`, `date`, `description`, `idMatiere`, `typeRendu`, `idClasse`, `idType`) VALUES
+('DS Electronique', '2021-06-18', 'Loi d\'ohm, loi des noeuds, etc. à apprendre par cœur !', '1', '', '19', '1'),
+('EI AnaNum', '2021-04-15', 'Euler Taylor2 RungeKutta', '4', '', '1', '2'),
+('DS Sécurité', '2021-01-12', '', '5', '', '2', '1')
 ;
 INSERT INTO `lienutilisateurrole` (`idRole`, `idUtilisateur`, `valide`) VALUES
 ('1', '2', ''),
@@ -58,3 +58,4 @@ INSERT INTO `lienutilisateurrole` (`idRole`, `idUtilisateur`, `valide`) VALUES
 ('8', '2', ''),
 ('10', '2', '')
 ;
+INSERT INTO `matiere` (`nom`) VALUES ('Maths'),('Analyse Numerique'),('Sécurité'),('Anglais'),('Web'),('DotNet'),('Php'),('IA');
