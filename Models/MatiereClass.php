@@ -38,3 +38,4 @@ class Matiere{
 	public function getMatNom(){
 		return $this->nom;
 	}
+}

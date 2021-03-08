@@ -1,6 +1,6 @@
 <?php
 /*
-* @class Event
+* @class Evt
 * @author Latour Renut Timimi
 */
 class Evenement{
@@ -9,11 +9,12 @@ class Evenement{
 	private $date;
 	private $description;
 	private $idMatiere;
-	private $matiereEvt;
+	private $matiere;
 	private $typeRendu;
 	private $idClasse;
 	private $classeEvt;
 	private $idType;
+	private $typeEvt;
 
 	public function __construct($valeurs = array()){
 		if(!empty($valeurs)){
@@ -24,89 +25,105 @@ class Evenement{
   		foreach($donnee as $attribut => $valeur){
   			switch($attribut){
   				case 'idEvenement':
-  					$this->setEvId($valeur);
+  					$this->setEvtId($valeur);
   					break;
   				case 'nom':
-  					$this->setEvNom($valeur);
+  					$this->setEvtNom($valeur);
   					break;
   				case 'date':
-  					$this->setEvDate($valeur);
+  					$this->setEvtDate($valeur);
   					break;
   				case 'description':
-  					$this->setEvDesc($valeur);
+  					$this->setEvtDescription($valeur);
   					break;
   				case 'idMatiere':
-  					$this->setEvMatId($valeur);
+  					$this->setEvtMatiereId($valeur);
   					break;
   				case 'typeRendu':
-  					$this->setEvRendu($valeur);
+  					$this->setEvtTypeRendu($valeur);
   					break;
-  				case 'idClass':
-  					$this->setEvClassId($valeur);
+  				case 'idClasse':
+  					$this->setEvtClasseId($valeur);
   					break;
   				case 'idType':
-  					$this->setEvType($valeur);
+  					$this->setEvtTypeId($valeur);
   					break;
   			}
 				$db = Database::getInstance();
-				$classe = new ClasseManager($db);
-				$matiere = new MatiereManager($db);
-				$this->classeEvt = $classe->getClasseById($this->getEvClassId());
-				$this->matiereEvt = $matiere->getMatById($this->getEvMatId());
+				$managerMatiere = new MatiereManager($db);
+				$managerClasse = new ClasseManager($db);
+				$managerType = new TypeEvenementManager($db);
+				$this->matiere = $managerMatiere->getMatiereById($this->getEvtMatiereId());
+				$this->classeEvt = $managerClasse->getClasseById($this->getEvtClasseId());
+				$this->typeEvt = $managerType->getTypeEvtById($this->getEvtTypeId());
   		}
     }
 
-  	public function setEvId($valeur){
+  	public function setEvtId($valeur){
   		$this->idEvenement = $valeur;
   	}
-  	public function setEvNom($valeur){
+  	public function setEvtNom($valeur){
   		$this->nom = $valeur;
   	}
-  	public function setEvDate($valeur){
+  	public function setEvtDate($valeur){
   		$this->date = $valeur;
   	}
-  	public function setEvDesc($valeur){
+  	public function setEvtDescription($valeur){
   		$this->description = $valeur;
   	}
-  	public function setEvMatId($valeur){
+  	public function setEvtMatiereId($valeur){
   		$this->idMatiere = $valeur;
   	}
-  	public function setEvRendu($valeur){
+		public function setEvtMatiere($valeur){
+  		$this->matiere = $valeur;
+  	}
+  	public function setEvtTypeRendu($valeur){
   		$this->typeRendu = $valeur;
   	}
-  	public function setEvClassId($valeur){
-  		$this->idClass = $valeur;
+  	public function setEvtClasseId($valeur){
+  		$this->idClasse = $valeur;
   	}
-  	public function setEvClasse($valeur){
+		public function setEvtClasse($valeur){
   		$this->classeEvt = $valeur;
   	}
-  	public function setEvType($valeur){
-  		$this->type = $valeur;
+  	public function setEvtTypeId($valeur){
+  		$this->idType = $valeur;
   	}
-  	public function getEvId(){
+		public function setEvtType($valeur){
+  		$this->typeEvt = $valeur;
+  	}
+
+		public function getEvtId(){
   		return $this->idEvenement;
   	}
-  	public function getEvNom(){
+  	public function getEvtNom(){
   		return $this->nom;
   	}
-  	public function getEvDate(){
+  	public function getEvtDate(){
   		return $this->date;
   	}
-  	public function getEvDesc(){
+  	public function getEvtDescription(){
   		return $this->description;
   	}
-  	public function getEvMatId(){
+  	public function getEvtMatiereId(){
   		return $this->idMatiere;
   	}
-  	public function getEvRendu(){
+		public function getEvtMatiere(){
+  		return $this->matiere;
+  	}
+  	public function getEvtTypeRendu(){
   		return $this->typeRendu;
   	}
-  	public function getEvClassId(){
+  	public function getEvtClasseId(){
   		return $this->idClasse;
   	}
-  	public function getEvClass(){
+		public function getEvtClasse(){
   		return $this->classeEvt;
   	}
-  	public function getEvType(){
-  		return $this->type;
+  	public function getEvtTypeId(){
+  		return $this->idType;
   	}
+		public function getEvtType(){
+  		return $this->typeEvt;
+  	}
+}

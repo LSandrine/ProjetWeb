@@ -12,14 +12,14 @@ class EvenementManager{
 
 	public function add($evenement){
 		$req = $this->bd->prepare('INSERT INTO evenement VALUES (:idEvenement, :nom, :date, :description, :idMatiere, :typeRendu, :idClasse, :idType);');
-		$req->bindValue(':idEvenement',$idEvenement->getEvId(),PDO::PARAM_INT);
-		$req->bindValue(':nom',$nom->getEvNom(),PDO::PARAM_STR);
-		$req->bindValue(':date',$date->getEvDate(),PDO::PARAM_STR);
-		$req->bindValue(':description',$description->getEvDesc(),PDO::PARAM_STR);
-		$req->bindValue(':idMatiere',$idMatiere->getEvMatId(),PDO::PARAM_STR);
-		$req->bindValue(':typeRendu',$typeRendu->getEvRendu(),PDO::PARAM_STR);
-		$req->bindValue(':idClasse',$idClasse->getEvClass(),PDO::PARAM_INT);
-		$req->bindValue(':idType',$idType->getEvType(),PDO::PARAM_INT);
+		$req->bindValue(':idEvenement',$idEvt->getEvtId(),PDO::PARAM_INT);
+		$req->bindValue(':nom',$nom->getEvtNom(),PDO::PARAM_STR);
+		$req->bindValue(':date',$date->getEvtDate(),PDO::PARAM_STR);
+		$req->bindValue(':description',$description->getEvtDesc(),PDO::PARAM_STR);
+		$req->bindValue(':idMatiere',$idMatiere->getEvtMatId(),PDO::PARAM_STR);
+		$req->bindValue(':typeRendu',$typeRendu->getEvtRendu(),PDO::PARAM_STR);
+		$req->bindValue(':idClasse',$idClasse->getEvtClass(),PDO::PARAM_INT);
+		$req->bindValue(':idType',$idType->getEvtType(),PDO::PARAM_INT);
 		$req->execute();
 	}
 
@@ -34,9 +34,9 @@ class EvenementManager{
 			return $ListeEv;
 		}
 
-		public function getEvenementById($id){
-			$req = $this->bd->prepare('SELECT idEvenement, nom, date, description, idMatiere, typeRendu, idClasse, idType FROM evenement WHERE idEvenement = :idEvenement;');
-			$req->bindValue(':idEvenement', $id, PDO::PARAM_INT);
+		public function getEvtById($id){
+			$req = $this->bd->prepare('SELECT idEvenement, nom, date, description, idMatiere, typeRendu, idClasse, idType FROM evenement WHERE idEvt = :idEvt;');
+			$req->bindValue(':idEvt', $id, PDO::PARAM_INT);
 			$req->execute();
 			$evenement = new Evenement($req->fetch(PDO::FETCH_OBJ));
 			$req->closeCursor();
