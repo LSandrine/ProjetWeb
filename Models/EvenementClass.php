@@ -110,3 +110,4 @@ class Evenement{
   	public function getEvType(){
   		return $this->type;
   	}
+}

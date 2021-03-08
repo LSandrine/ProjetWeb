@@ -5,15 +5,8 @@ include_once '../Models/ClasseManager.php';
 Configuration::setConfigurationFile('../database/configuration.ini');
 $db = Database::getInstance();
 $ClasseManager=new ClasseManager($db);
- ?>
-
-
-require("menu.php");
-include_once 'Models/ClasseManager.php';
-Configuration::setConfigurationFile('database/configuration.ini');
-$db = Database::getInstance();
-$ClasseManager=new ClasseManager($db);
 ?>
+
 
 
 
