@@ -8,9 +8,6 @@ $ClasseManager=new ClasseManager($db);
 ?>
 
 
-
-
-
 <body>
  <div class="container">
    <div class="Back">

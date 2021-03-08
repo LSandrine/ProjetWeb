@@ -7,7 +7,13 @@ $managerclasse=new ClasseManager($db);
 $managermatiere=new MatiereManager($db);
 $ListClasse = $managerclasse->getAll();
 $ListMat = $managermatiere->getAll();
-
+$ListPromo = $managerclasse->getAllPromotion_tmp();
+$ListGrp = $managerclasse->getAllGrp_tmp();
+echo '<pre>';
+print_r($managerclasse->getAllPromotion_tmp());
+echo 'grp ';
+print_r($managerclasse->getGrpByPromotion_tmp('I2'));
+echo '</pre>';
 //if(!isset($_POST['nomEvt']) && !isset($_POST['dateEvt']) && !isset($_POST['descEvt']) && !isset($_POST['matEvt']) && !isset($_POST['typeR'])) {
 ?>
 
@@ -38,14 +44,14 @@ $ListMat = $managermatiere->getAll();
           <label>Classe concernée par l'événement </label>
           <label>Promotion</label>
           <select name="promoEvt" id="promoEvt" class="form-control" >
-            <?php foreach($ListClasse as $classe){ ?>
-            <option value="<?php echo $classe->getClassId() ?>"><?php echo $classe->getClassPromo(); ?></option>
+            <?php foreach($ListPromo as $prom){ ?>
+            <option value="<?php echo $prom ?>"><?php echo $prom; ?></option>
             <?php } ?>
           </select>
           <label>Groupe</label>
           <select name="grpEvt" id="grpEvt" class="form-control" >
-            <?php foreach($ListClasse as $classe2){ ?>
-            <option value="<?php echo $classe2->getClassId() ?>"><?php echo $classe2->getClassGrp(); ?></option>
+            <?php foreach($ListGrp as $grp){ ?>
+            <option value="<?php echo $grp ?>"><?php echo $grp ?></option>
             <?php } ?>
           </select>
         </div>

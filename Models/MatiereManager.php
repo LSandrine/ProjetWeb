@@ -31,7 +31,7 @@ class MatiereManager{
 		$req = $this->bd->prepare('SELECT idMatiere, nom FROM matiere WHERE idMatiere = :idMatiere;');
 		$req->bindValue(':idMatiere', $id, PDO::PARAM_INT);
 		$req->execute();
-		$matiere = new Utilisateur($req->fetch(PDO::FETCH_OBJ));
+		$matiere = new Matiere($req->fetch(PDO::FETCH_OBJ));
 		$req->closeCursor();
 		return $matiere;
 	}

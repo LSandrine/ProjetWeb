@@ -13,15 +13,14 @@
   require_once "Models/UtilisateurManager.php";
   require_once "Models/ClasseClass.php";
   require_once "Models/ClasseManager.php";
+  require_once "Models/MatiereClass.php";
+  require_once "Models/MatiereManager.php";
 
   Configuration::setConfigurationFile('database/configuration.ini');
   $db = Database::getInstance();
-  print_r($db);
-  $A = new UtilisateurManager($db);
-  $B = new ClasseManager($db);
+  $C = new MatiereManager($db);
 
   echo '<pre>';
-  print_r($A->getAll());
-  print_r($B->getAll());
+  print_r($C->getMatiereById(1));
   echo '</pre>';
 ?>
