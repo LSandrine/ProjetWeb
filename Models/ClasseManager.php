@@ -28,16 +28,6 @@ class ClasseManager{
 		$req->closeCursor();
 		return $ListeClass;
 	}
-
-	public function getPromotion()
-	{
-		
-		$response = $this->bd->query('SELECT distinct promotion FROM classe;');
-		$response->execute();
-		return $response->fetch();
-
-	}
-
 	public function getClasseById($id){
 		$req = $this->bd->prepare('SELECT idClasse, promotion, groupe, anneeDiplome FROM classe WHERE idClasse = :idClasse;');
 		$req->bindValue(':idClasse', $id, PDO::PARAM_INT);
@@ -45,5 +35,10 @@ class ClasseManager{
 		$classe = new Classe($req->fetch(PDO::FETCH_OBJ));
 		$req->closeCursor();
 		return $classe;
+	}
+	public function getPromotion(){
+		$response = $this->bd->query('SELECT distinct promotion FROM classe;');
+		$response->execute();
+		return $response->fetch();
 	}
 }

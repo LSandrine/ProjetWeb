@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 08 mars 2021 à 10:18
+-- Généré le : lun. 08 mars 2021 à 11:09
 -- Version du serveur :  8.0.21
 -- Version de PHP : 7.3.21
 
@@ -72,7 +72,7 @@ DROP TABLE IF EXISTS `evenement`;
 CREATE TABLE IF NOT EXISTS `evenement` (
   `idEvenement` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
-  `date` date NOT NULL,
+  `dateEvt` date NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `idMatiere` int NOT NULL,
   `typeRendu` varchar(255) NOT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `evenement` (
 -- Déchargement des données de la table `evenement`
 --
 
-INSERT INTO `evenement` (`idEvenement`, `nom`, `date`, `description`, `idMatiere`, `typeRendu`, `idClasse`, `idType`) VALUES
+INSERT INTO `evenement` (`idEvenement`, `nom`, `dateEvt`, `description`, `idMatiere`, `typeRendu`, `idClasse`, `idType`) VALUES
 (1, 'DS Electronique', '2021-03-02', 'Loi d\'ohm, loi des noeuds, etc. à apprendre par cœur !', 1, '', 1, 1),
 (2, 'DS Electronique', '2021-06-18', 'Loi d\'ohm, loi des noeuds, etc. à apprendre par cœur !', 1, '', 19, 1),
 (3, 'EI AnaNum', '2021-04-15', 'Euler Taylor2 RungeKutta', 4, '', 1, 2),
