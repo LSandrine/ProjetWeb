@@ -17,7 +17,7 @@ class UtilisateurManager{
 		$req->bindValue(':idUtilisateur',$idUtilisateur->getUtId(),PDO::PARAM_INT);
 		$req->bindValue(':mail',$mail->getUtMail(),PDO::PARAM_STR);
 		$req->bindValue(':mdp',$mdp->getUtMdp(),PDO::PARAM_STR);
-		$req->bindValue(':idClasse',$idClasse->getUtClass(),PDO::PARAM_INT);
+		$req->bindValue(':idClasse',$idClasse->getUtClassId(),PDO::PARAM_INT);
 		$req->execute();
 	}
 

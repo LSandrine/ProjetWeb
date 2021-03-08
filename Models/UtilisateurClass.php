@@ -50,7 +50,7 @@ class Utilisateur{
 	public function setUtClassId($valeur){
 		$this->idClasse = $valeur;
 	}
-	public function setUtClass($valeur){
+	public function setUtClasse($valeur){
 		$this->classeUt = $valeur;
 	}
 
@@ -66,7 +66,7 @@ class Utilisateur{
 	public function getUtClassId(){
 		return $this->idClasse;
 	}
-	public function getUtClass(){
+	public function getUtClasse(){
 		return $this->classeUt;
 	}
 }
