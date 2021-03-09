@@ -21,19 +21,16 @@ class TypeEvenementManager{
 		$ListeTypeEvt = array();
 		$req = $this->bd->query('SELECT idTypeEvenement, nom FROM typeevenement;');
 		while ($typeevenement = $req->fetch(PDO::FETCH_OBJ) ) {
-			$ListeTypeEvt[] = new TypeEvt($typeevenement);
+			$ListeTypeEvt[] = new TypeEvenement($typeevenement);
 		}
 		$req->closeCursor();
 		return $ListeTypeEvt;
 	}
 
-	public function getNom()
-	{
-
+	public function getNom(){
 		$response = $this->bd->query('SELECT distinct nom FROM typeevenement;');
 		$response->execute();
 		return $response->fetch();
-
 	}
 
 	public function getTypeEvtById($id){
