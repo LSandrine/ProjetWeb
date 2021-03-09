@@ -10,16 +10,16 @@ class TypeEvenementManager{
 		$this->bd = $bd;
 	}
 
-	public function add($evenement){
+	public function add($type){
 		$req = $this->bd->prepare('INSERT INTO typeevenement VALUES (:idTypeEvenement, :nom);');
-		$req->bindValue(':idTypeEvt',$idTypeEvt->getTypeEvtId(),PDO::PARAM_INT);
-		$req->bindValue(':nom',$promotion->getTypeEvtNom(),PDO::PARAM_STR);
+		$req->bindValue(':idTypeEvt',$type->getTypeEvtId(),PDO::PARAM_INT);
+		$req->bindValue(':nom',$type->getTypeEvtNom(),PDO::PARAM_STR);
 		$req->execute();
 	}
 
 	public function getAll(){
 		$ListeTypeEvt = array();
-		$req = $this->bd->query('SELECT idTypeEvenement, nom FROM typeevenement;');
+		$req = $this->bd->prepare('SELECT idTypeEvenement, nom FROM typeevenement;');
 		while ($typeevenement = $req->fetch(PDO::FETCH_OBJ) ) {
 			$ListeTypeEvt[] = new TypeEvenement($typeevenement);
 		}
@@ -28,7 +28,7 @@ class TypeEvenementManager{
 	}
 
 	public function getNom(){
-		$response = $this->bd->query('SELECT distinct nom FROM typeevenement;');
+		$response = $this->bd->prepare('SELECT distinct nom FROM typeevenement;');
 		$response->execute();
 		return $response->fetch();
 	}
