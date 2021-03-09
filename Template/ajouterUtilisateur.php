@@ -9,110 +9,67 @@ $ClasseManager=new ClasseManager($db);
 
 
 <body>
+  <div style="width: 500px;margin: auto;">
+
+
  <div class="container">
-   <div class="Back">
-          <i class="fa fa-arrow-left" onclick="Back()"></i>
-      </div>
+
+
  </div>
-  <p class="h2 text-center">Form</p>
-  <form action="" method="post">
+  <p class="h2 text-center" style="text-decoration: underline;">Formulaire d'inscription</p>
+  <form action="inscription.php" method="post" >
             <div class="preview text-center">
                 <img class="preview-img" src="http://simpleicon.com/wp-content/uploads/account.png" alt="Preview Image" width="200" height="200"/>
-                <div class="browse-button">
-                    <i class="fa fa-pencil-alt"></i>
-                    <input class="browse-input" type="file" required name="UploadedFile" id="UploadedFile"/>
-                </div>
-                <span class="Error"></span>
             </div>
 
             <div class="form-group">
                 <label>mail 3il:</label>
-                <input class="form-control" type="email" name="email" required placeholder="Enter Your Email"/>
-                <span class="Error"></span>
+                <input class="form-control" type="email" name="email" required="required" placeholder="xyz@3il.fr" id="email" onkeyup="verifmail()"/>
+                <span class="Error" id="varifemail" style="display:none;"> Veuillez renseigner correctement le champ</span>
             </div>
             <div class="form-group">
                 <label>mot de passse:</label>
-                <input class="form-control" type="password" name="password" required placeholder="Enter Password"/>
-                <span class="Error"></span>
+                <input class="form-control" type="password" name="password" required placeholder="mot de passe" id="password" onkeyup="verifPassword()"/>
+                <span class="Error"id="varifpassword" style="display:none;">Veuillez renseigner bien le champ (mini 5 caractéres)</span>
             </div>
 
             <div class="form-group">
                 <label>Promotion:</label><br/>
-                <select class="form-control" >
-                  <option selected>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                <select class="form-control" name="promotion">
+
+                  <?php foreach($ClasseManager->getPromotion() as $key ) {
+                         echo '<option id="promotion" value='.$key['promotion'].'>'.$key['promotion'].'</option>';
+                         } ?>
                 </select>
                 <span class="Error"></span>
             </div>
-              <?php var_dump($ClasseManager->getPromotion());  ?>
             <div class="form-group">
                 <label>Classe:</label><br/>
-                <select class="form-control" >
-                <?php echo " ".$ClasseManager->getPromotion();  ?>
-                  <option selected>Open this select menu</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                <select class="form-control" name="groupe" >
+                <?php foreach($ClasseManager->getGroupe() as $key ) {
+                    echo '<option id="groupe" value='.$key['groupe'].'>'.$key['groupe'].'</option>';
+                  } ?>
+
                 </select>
                 <span class="Error"></span>
             </div>
+            <div class="form-check" style="margin-left: 193px;">
+              <label class="form-check-label" for="exampleCheck1">Délégué</label>
+              <input type="checkbox" class="form-check-input" id="exampleCheck1"  style="margin-right: 63px;">
+           </div>
             <div class="form-group">
-                <input class="btn btn-primary btn-block" type="submit" value="Submit"/>
+              <button class="btn btn-primary btn-block" type="submit" name="button" onclick="inscription()" >inscription</button>
             </div>
         </form>
-
-
-
-<span class="Error"></span>
+        <div class="form-group">
+          <span style="font-weight: bold;color: red;display:none;" id='verif'>Veuillez renseigner tous les champs</span>
+        </div>
 </div>
-
-
-
-<div class="form-group">
-<label>mail de 3il:</label>
-<input class="form-control" type="email" name="email" required placeholder="Enter Your Email"/>
-<span class="Error"></span>
-</div>
-
-
-
-<div class="form-group">
-<label>mot de passse:</label>
-<input class="form-control" type="password" name="password" required placeholder="Enter Password"/>
-<span class="Error"></span>
-</div>
-
-
-
-<div class="form-group">
-<label>Promotion:</label><br/>
-<select class="form-control" >
-<option selected>Open this select menu</option>
-<option value="1">One</option>
-<option value="2">Two</option>
-<option value="3">Three</option>
-</select>
-<span class="Error"></span>
-</div>
-<?php var_dump($ClasseManager->getPromotion()); ?>
-<div class="form-group">
-<label>Classe:</label><br/>
-<select class="form-control" >
-<?php echo " ".$ClasseManager->getPromotion(); ?>
-<option selected>Open this select menu</option>
-<option value="1">One</option>
-<option value="2">Two</option>
-<option value="3">Three</option>
-</select>
-<span class="Error"></span>
-</div>
-<div class="form-group">
-<input class="btn btn-primary btn-block" type="submit" value="Incription"/>
-</div>
-</form>
-
-
-
 </body>
+
+<script type="text/javascript">
+
+
+
+
+</script>

@@ -14,7 +14,7 @@ class EvenementManager{
 		$req = $this->bd->prepare('INSERT INTO evenement VALUES (:idEvenement, :nom, :dateEvt, :description, :idMatiere, :typeRendu, :idClasse, :idType);');
 		$req->bindValue(':idEvenement',$idEvenement->getEvId(),PDO::PARAM_INT);
 		$req->bindValue(':nom',$nom->getEvtNom(),PDO::PARAM_STR);
-		$req->bindValue(':dateEvt',$date->getEvtDate(),PDO::PARAM_STR);
+		$req->bindValue(':dateEvt',$dateEvt->getEvtDate(),PDO::PARAM_STR);
 		$req->bindValue(':description',$description->getEvtDesc(),PDO::PARAM_STR);
 		$req->bindValue(':idMatiere',$idMatiere->getEvtMatId(),PDO::PARAM_STR);
 		$req->bindValue(':typeRendu',$typeRendu->getEvtRendu(),PDO::PARAM_STR);
