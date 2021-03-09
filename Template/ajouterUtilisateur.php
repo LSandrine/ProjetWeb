@@ -12,7 +12,7 @@ $ClasseManager=new ClasseManager($db);
   <div style="width: 500px;margin: auto;">
 
 
- <div class="container">
+ <div class="containerAddUtilisateur">
 
 
  </div>
