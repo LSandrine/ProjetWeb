@@ -56,7 +56,7 @@ class ClasseManager{
 		return $ListGrp;
 	}
 	public function getClasseByPromoGrp($promo,$grp){
-		$req = $this->bd->prepare('SELECT idClasse, promotion, groupe, anneeDiplome FROM classe WHERE promotion = :promotion,groupe = :groupe;');
+		$req = $this->bd->prepare('SELECT idClasse, promotion, groupe, anneeDiplome FROM classe WHERE promotion = :promotion AND groupe = :groupe;');
 		$req->bindValue(':promotion', $promo, PDO::PARAM_STR);
 		$req->bindValue(':groupe', $grp, PDO::PARAM_STR);
 		$req->execute();

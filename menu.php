@@ -14,7 +14,8 @@ require_once "../Models/EvenementClass.php";
 require_once "../Models/TypeEvenementManager.php";
 require_once "../Models/TypeEvenementClass.php";
 ?>
-<link rel="stylesheet" href="../Css/bootstrap-3.4.1-dist/css/bootstrap.min.css">
-<link rel ="stylesheet" href="../Css/style.css">
-<link rel="stylesheet" href="../Css/bootstrap-3.4.1-dist/css/bootstrap.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="../Style/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+<link rel ="stylesheet" href="../Style/style.css">
+<link rel="stylesheet" href="../Style/bootstrap-3.4.1-dist/css/bootstrap.css">
+<link rel="stylesheet" href="../Style/jquery/jquery-3.5.1.min.js">
+<link rel="stylesheet" href="../Style/popper/popper.js">
