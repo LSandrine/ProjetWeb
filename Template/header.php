@@ -56,8 +56,8 @@
       <!-- Slide One - Set the background image for this slide in the line below -->
       <div class="carousel-item active" style="background-image: url('Css/images/mainDiplome.jpg');">
         <div class="carousel-caption d-none d-md-block">
-          <h3 class="display-4">Organisez vos révisions</h3>
-          <p class="lead">Le semainier vous permet d'obtenir un point de vue de vos semaines à venir ! </p>
+          <h3 class="display-4">Votre Diplome</h3>
+          <p class="lead">C'est cool d'obtenir son diplome !</p>
         </div>
       </div>
       <!-- Slide Two - Set the background image for this slide in the line below -->
@@ -70,8 +70,8 @@
       <!-- Slide Three - Set the background image for this slide in the line below -->
       <div class="carousel-item" style="background-image: url('Css/images/travail.jpg');">
         <div class="carousel-caption d-none d-md-block">
-          <h3 class="display-4">Votre Diplome</h3>
-          <p class="lead">C'est cool d'obtenir son diplome !</p>
+          <h3 class="display-4">Organisez vos révisions</h3>
+          <p class="lead">Le semainier vous permet d'obtenir un point de vue de vos semaines à venir !</p>
         </div>
       </div>
     </div>
