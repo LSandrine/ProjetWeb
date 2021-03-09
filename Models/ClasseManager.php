@@ -10,18 +10,18 @@ class ClasseManager{
 		$this->bd = $bd;
 	}
 
-	public function add($evenement){
+	public function add($classe){
 		$req = $this->bd->prepare('INSERT INTO classe VALUES (:idClasse, :promotion, :groupe, :anneeDiplome);');
-		$req->bindValue(':idClasse',$idClasse->getClassId(),PDO::PARAM_INT);
-		$req->bindValue(':promotion',$promotion->getClassPromo(),PDO::PARAM_STR);
-		$req->bindValue(':groupe',$groupe->getClassGrp(),PDO::PARAM_STR);
-		$req->bindValue(':anneeDiplome',$anneeDiplome->getClassDip(),PDO::PARAM_INT);
+		$req->bindValue(':idClasse',$classe->getClassId(),PDO::PARAM_INT);
+		$req->bindValue(':promotion',$classe->getClassPromo(),PDO::PARAM_STR);
+		$req->bindValue(':groupe',$classe->getClassGrp(),PDO::PARAM_STR);
+		$req->bindValue(':anneeDiplome',$classe->getClassDip(),PDO::PARAM_INT);
 		$req->execute();
 	}
 
 	public function getAll(){
 		$ListeClass = array();
-		$req = $this->bd->query('SELECT idClasse, promotion, groupe, anneeDiplome FROM classe;');
+		$req = $this->bd->prepare('SELECT idClasse, promotion, groupe, anneeDiplome FROM classe;');
 		while ($classe = $req->fetch(PDO::FETCH_OBJ) ) {
 			$ListeClass[] = new Classe($classe);
 		}
@@ -39,7 +39,7 @@ class ClasseManager{
 	}
 	public function getPromotion(){
 		$ListPromo = array();
-		$response = $this->bd->query('SELECT distinct promotion FROM classe;');
+		$response = $this->bd->prepare('SELECT distinct promotion FROM classe;');
 		$response->execute();
 		while ($prom = $response->fetch() ) {
 			$ListPromo[] = $prom;
@@ -48,7 +48,7 @@ class ClasseManager{
 	}
 	public function getGroupe(){
 		$ListGrp = array();
-		$response = $this->bd->query('SELECT distinct groupe FROM classe;');
+		$response = $this->bd->prepare('SELECT distinct groupe FROM classe;');
 		$response->execute();
 		while ($grp = $response->fetch() ) {
 			$ListGrp[] = $grp;

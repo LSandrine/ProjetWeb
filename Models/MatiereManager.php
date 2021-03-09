@@ -12,14 +12,14 @@ class MatiereManager{
 
 	public function add($matiere){
 		$req = $this->bd->prepare('INSERT INTO matiere VALUES (:idMatiere, :nom);');
-		$req->bindValue(':idMatiere',$idMatiere->getMatId(),PDO::PARAM_INT);
-		$req->bindValue(':nom',$nom->getMatNom(),PDO::PARAM_STR);
+		$req->bindValue(':idMatiere',$matiere->getMatId(),PDO::PARAM_INT);
+		$req->bindValue(':nom',$matiere->getMatNom(),PDO::PARAM_STR);
 		$req->execute();
 	}
 
 	public function getAll(){
 		$ListeMat = array();
-		$req = $this->bd->query('SELECT idMatiere, nom FROM matiere;');
+		$req = $this->bd->prepare('SELECT idMatiere, nom FROM matiere;');
 		while ($matiere = $req->fetch(PDO::FETCH_OBJ) ) {
 			$ListeMat[] = new Matiere($matiere);
 		}

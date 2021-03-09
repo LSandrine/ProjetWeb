@@ -14,16 +14,16 @@ class UtilisateurManager{
 
 	public function add($utilisateur){
 		$req = $this->bd->prepare('INSERT INTO utilisateur VALUES (:idUtilisateur, :mail, :mdp, :idClasse);');
-		$req->bindValue(':idUtilisateur',$idUtilisateur->getUtId(),PDO::PARAM_INT);
-		$req->bindValue(':mail',$mail->getUtMail(),PDO::PARAM_STR);
-		$req->bindValue(':mdp',$mdp->getUtMdp(),PDO::PARAM_STR);
-		$req->bindValue(':idClasse',$idClasse->getUtClassId(),PDO::PARAM_INT);
+		$req->bindValue(':idUtilisateur',$utilisateur->getUtId(),PDO::PARAM_INT);
+		$req->bindValue(':mail',$utilisateur->getUtMail(),PDO::PARAM_STR);
+		$req->bindValue(':mdp',$utilisateur->getUtMdp(),PDO::PARAM_STR);
+		$req->bindValue(':idClasse',$utilisateur->getUtClassId(),PDO::PARAM_INT);
 		$req->execute();
 	}
 
 	public function getAll(){
 		$ListeUt = array();
-		$req = $this->bd->query('SELECT idUtilisateur, mail, mdp, idClasse FROM utilisateur;');
+		$req = $this->bd->prepare('SELECT idUtilisateur, mail, mdp, idClasse FROM utilisateur;');
 		while ($utilisateur = $req->fetch(PDO::FETCH_OBJ) ) {
 			$ListeUt[] = new Utilisateur($utilisateur);
 		}
