@@ -26,7 +26,6 @@ require_once "Models/TypeEvenementManager.php";
 require_once "Models/MatiereClass.php";
 require_once "Models/MatiereManager.php";
 //Templates
-require_once "Template/menu.php";
 require_once "Template/ajouterEvenement.php";
 
 //CORPS
