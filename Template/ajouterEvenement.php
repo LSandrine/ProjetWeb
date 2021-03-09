@@ -5,15 +5,13 @@ $db = Database::getInstance();
 $managerevent=new EvenementManager($db);
 $managerclasse=new ClasseManager($db);
 $managermatiere=new MatiereManager($db);
+$managertype=new TypeEvenementManager($db);
 $ListClasse = $managerclasse->getAll();
 $ListMat = $managermatiere->getAll();
-$ListPromo = $managerclasse->getAllPromotion_tmp();
-$ListGrp = $managerclasse->getAllGrp_tmp();
-echo '<pre>';
-print_r($managerclasse->getAllPromotion_tmp());
-echo 'grp ';
-print_r($managerclasse->getGrpByPromotion_tmp('I2'));
-echo '</pre>';
+$ListPromo = $managerclasse->getPromotion();
+$ListGrp = $managerclasse->getGroupe();
+$ListType = $managertype->getAll();
+
 //if(!isset($_POST['nomEvt']) && !isset($_POST['dateEvt']) && !isset($_POST['descEvt']) && !isset($_POST['matEvt']) && !isset($_POST['typeR'])) {
 ?>
 
@@ -44,23 +42,23 @@ echo '</pre>';
           <label>Classe concernée par l'événement </label>
           <label>Promotion</label>
           <select name="promoEvt" id="promoEvt" class="form-control" >
-            <?php foreach($ListPromo as $prom){ ?>
-            <option value="<?php echo $prom ?>"><?php echo $prom; ?></option>
-            <?php } ?>
+            <?php foreach($ListPromo as $promo ) { ?>
+                <option id="promotion" value="<?php echo $promo["promotion"]; ?>" ><?php echo $promo["promotion"]; ?></option>
+             <?php } ?>
           </select>
           <label>Groupe</label>
           <select name="grpEvt" id="grpEvt" class="form-control" >
             <?php foreach($ListGrp as $grp){ ?>
-            <option value="<?php echo $grp ?>"><?php echo $grp ?></option>
+            <option value="<?php echo $grp["groupe"] ?>"><?php echo $grp["groupe"] ?></option>
             <?php } ?>
           </select>
         </div>
         <div id="type">
           <label for="typeEvt">Type de l'événement </label>
           <select name="typeEvt" id="typeEvt" class="form-control" >
-            <option selected>Open this select menu</option>
-            <?php
-            ?>
+            <?php foreach($ListType as $type){ ?>
+            <option value="<?php echo $type->getTypeEvenementId() ?>"><?php echo $type->getTypeEvenementNom(); ?></option>
+            <?php } ?>
           </select>
         </div>
       </div>

@@ -29,18 +29,36 @@ class ClasseManager{
 		return $ListeClass;
 	}
 
-	public function getPromotion()
-	{
-
-		$response = $this->bd->query('SELECT distinct promotion FROM classe;');
-		$response->execute();
-		return $response->fetch();
-
-	}
-
 	public function getClasseById($id){
 		$req = $this->bd->prepare('SELECT idClasse, promotion, groupe, anneeDiplome FROM classe WHERE idClasse = :idClasse;');
 		$req->bindValue(':idClasse', $id, PDO::PARAM_INT);
+		$req->execute();
+		$classe = new Classe($req->fetch(PDO::FETCH_OBJ));
+		$req->closeCursor();
+		return $classe;
+	}
+	public function getPromotion(){
+		$ListPromo = array();
+		$response = $this->bd->query('SELECT distinct promotion FROM classe;');
+		$response->execute();
+		while ($prom = $response->fetch() ) {
+			$ListPromo[] = $prom;
+		}
+		return $ListPromo;
+	}
+	public function getGroupe(){
+		$ListGrp = array();
+		$response = $this->bd->query('SELECT distinct groupe FROM classe;');
+		$response->execute();
+		while ($grp = $response->fetch() ) {
+			$ListGrp[] = $grp;
+		}
+		return $ListGrp;
+	}
+	public function getClasseByPromoGrp($promo,$grp){
+		$req = $this->bd->prepare('SELECT idClasse, promotion, groupe, anneeDiplome FROM classe WHERE promotion = :promotion,groupe = :groupe;');
+		$req->bindValue(':promotion', $promo, PDO::PARAM_STR);
+		$req->bindValue(':groupe', $grp, PDO::PARAM_STR);
 		$req->execute();
 		$classe = new Classe($req->fetch(PDO::FETCH_OBJ));
 		$req->closeCursor();
