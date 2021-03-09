@@ -1,6 +1,5 @@
 <?php
-require("../menu.php");
-Configuration::setConfigurationFile('../Database/configuration.ini');
+Configuration::setConfigurationFile('Database/configuration.ini');
 $db = Database::getInstance();
 $managerevent=new EvenementManager($db);
 $managerclasse=new ClasseManager($db);
@@ -22,7 +21,6 @@ $today = $year . '-' . $month . '-' . $day;
 if(!isset($_POST['nom']) && !isset($_POST['dateEvt']) && !isset($_POST['descEvt']) && !isset($_POST['idMatiere']) && !isset($_POST['typeRendu']) && !isset($_POST['idClasse']) && !isset($_POST['idType'])) {
 ?>
 
-<body>
 <h1>Ajouter un événement</h1>
   <div class="container">
     <form action="#" method="post">
@@ -80,11 +78,6 @@ if(!isset($_POST['nom']) && !isset($_POST['dateEvt']) && !isset($_POST['descEvt'
     	  $_POST['idClasse'] = $classeChoose->getClassId();
     	  $_POST['idType'] = $typeChoose->getTypeEvenementId();
     		$event = new Evenement($_POST);
-        echo '<pre>';
-        print_r($_POST);
-        print_r($event);
-        echo '</pre>';
     		$managerevent->add($event);
     		?> <p> l'événement a bien été ajouté</p>
 <?php } ?>
-</body>
