@@ -26,10 +26,7 @@
   $A = new UtilisateurManager($db);
   $B = new ClasseManager($db);
   $C = new EvenementManager($db);
-
   echo '<pre>';
-  print_r($A->getAll());
-  print_r($B->getAll());
-  print_r($C->getAll());
+  print_r($B->getClasseByPromoGrp("I2","G1"));
   echo '</pre>';
 ?>
