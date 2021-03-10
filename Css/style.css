@@ -66,7 +66,7 @@ table, th, td, .semainier{
 .navbar {
     height: 50px;
 }
-/* Menu CAROUSEL (header) */
+/* Menu CAROUSEL (accueil) */
 .carousel-item {
   height: 65vh;
   min-height: 350px;
@@ -112,7 +112,6 @@ table, th, td, .semainier{
 /* corps (index) */
 #corps{
     background-color : #9baab7;
-    padding: 15px;
 }
 /* Box */
 .box-form {
