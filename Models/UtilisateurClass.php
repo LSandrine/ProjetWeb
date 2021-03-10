@@ -5,6 +5,7 @@
 */
 
 class Utilisateur{
+	private $isOK;
 	private $idUtilisateur;
 	private $mail;
 	private $mdp;
@@ -14,6 +15,9 @@ class Utilisateur{
 	public function __construct($valeurs = array()){
 		if(!empty($valeurs)){
 			$this->affecte($valeurs);
+			$this->isOK = true;
+		}else{
+			$this->isOK = false;
 		}
 	}
 	public function affecte($donnee){
@@ -37,6 +41,9 @@ class Utilisateur{
 			$this->classeUt = $manager->getClasseById($this->getUtClassId());
 		}
   }
+	public function isOK(){
+		return $this->isOK;
+	}
 
 	public function setUtId($valeur){
 		$this->idUtilisateur = $valeur;

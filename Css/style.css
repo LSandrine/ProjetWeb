@@ -66,6 +66,18 @@ table, th, td, .semainier{
 .navbar {
     height: 50px;
 }
+#liCo{
+    margin-left: 15px;
+    color: #ffffff;
+    box-shadow: inset 5px 5px 20px 0px #24282b;
+    text-align: center;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.mailCo{
+    font-size: 15px;
+}
 /* Menu CAROUSEL (accueil) */
 #carouselIndicators{
   top: -50px;
