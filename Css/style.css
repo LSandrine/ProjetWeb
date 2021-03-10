@@ -67,6 +67,9 @@ table, th, td, .semainier{
     height: 50px;
 }
 /* Menu CAROUSEL (accueil) */
+#carouselIndicators{
+  top: -50px;
+}
 .carousel-item {
   height: 65vh;
   min-height: 350px;
