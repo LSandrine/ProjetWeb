@@ -39,4 +39,13 @@ class UtilisateurManager{
 		$req->closeCursor();
 		return $utilisateur;
 	}
+	public function getUtAvecMailMdp($email,$mdp){
+			$req = $this->bd->prepare('SELECT idUtilisateur, mail, mdp, idClasse FROM utilisateur WHERE mail = :mail AND mdp = :mdp;');
+			$req->bindValue(':mail', $email, PDO::PARAM_STR);
+			$req->bindValue(':mdp', $mdp, PDO::PARAM_STR);
+			$req->execute();
+			$utilisateur = new Utilisateur($req->fetch(PDO::FETCH_OBJ));
+			$req->closeCursor();
+			return $utilisateur;
+	}
 }

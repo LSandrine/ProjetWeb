@@ -32,7 +32,11 @@ $ClasseManager=new ClasseManager($db);
                 <input class="form-control" type="password" name="password" required placeholder="mot de passe" id="password" onkeyup="verifPassword()"/>
                 <span class="Error"id="varifpassword" style="display:none;">Veuillez renseigner bien le champ (mini 5 caractéres)</span>
             </div>
-
+<?php
+//Cryptage du mdp
+	$salt = "48@!alsd";
+	$_POST['password'] = sha1(sha1($_POST['password']).$salt);
+ ?>
             <div class="form-group">
                 <label>Promotion:</label><br/>
                 <select class="form-control" name="promotion">

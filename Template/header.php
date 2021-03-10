@@ -27,18 +27,32 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Accueil
+          <a class="nav-link" href="index.php?page=0">Accueil
                 <span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Semainier</a>
+          <a class="nav-link" href="index.php?page=7">Semainier</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Liste</a>
+          <a class="nav-link" href="index.php?page=6">Liste</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">S'enregistrer</a>
+          <!--<a class="nav-link" href="#">S'enregistrer</a>-->
+    			<div id="connect">
+    				<?php
+    				if(isset($_SESSION['mail'])){
+    					if(!is_null($_SESSION['idClasse'])){ ?>
+    						<p>Utilisateur : <?php echo $_SESSION['mail']; ?> <a class="nav-link" href="index.php?page=2">Déconnexion</a></p>
+    					<?php
+    					}else{ ?>
+                <a class="nav-link" href="index.php?page=1">Connexion</a>
+    				  <?php
+    					}
+    				}else{ ?>
+              <a class="nav-link" href="index.php?page=1">Connexion</a>
+    				<?php } ?>
+    			</div>
         </li>
       </ul>
     </div>
