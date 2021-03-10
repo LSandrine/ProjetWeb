@@ -36,7 +36,7 @@
     				<?php
     				if(isset($_SESSION['mail'])){
     					if(!is_null($_SESSION['idClasse'])){ ?>
-						      <p>Utilisateur : <?php echo $_SESSION['mail']; ?> <a class="nav-link" href="index.php?page=2">Déconnexion</a></p>
+						      <a class="nav-link" href="index.php?page=2">Déconnexion</a>
             			</div>
                 </li>
                 <li class="nav-item">
@@ -44,6 +44,9 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="index.php?page=7">Semainier</a>
+                </li>
+                <li id="liCo" class="nav-item">
+                  <span class="mailCo"><?php echo $_SESSION['mail']; ?> </span>
                 </li>
     					<?php
     					}else{ ?>
