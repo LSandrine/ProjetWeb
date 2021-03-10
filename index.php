@@ -26,7 +26,7 @@ require_once "Models/TypeEvenementManager.php";
 require_once "Models/MatiereClass.php";
 require_once "Models/MatiereManager.php";
 //Templates
-require_once "Template/ajouterEvenement.php";
+require_once "Template/pages.php";
 
 //CORPS
 Configuration::setConfigurationFile('Database/configuration.ini');

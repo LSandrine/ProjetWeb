@@ -97,6 +97,16 @@ table, th, td, .semainier{
   text-align: right;
   padding-right: 5px;
 }
+/* Accueil (accueil) */
+.containerAccueil{
+    background-color : #9baab7;
+    padding: 15px;
+}
+.centreImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
 /* Ajout d'un event (ajouterEvenement) */
 .containerEvent{
     background-color : #9baab7;
