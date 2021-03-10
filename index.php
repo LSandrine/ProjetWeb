@@ -27,12 +27,9 @@ require_once "Models/MatiereClass.php";
 require_once "Models/MatiereManager.php";
 //Templates
 require_once "Template/pages.php";
-
 //CORPS
 Configuration::setConfigurationFile('Database/configuration.ini');
 $db = Database::getInstance();
-
-
 ?>
 </div>
 <div id="spacer"></div>

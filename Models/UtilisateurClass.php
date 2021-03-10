@@ -11,6 +11,7 @@ class Utilisateur{
 	private $mdp;
 	private $idClasse;
 	private $classeUt;
+	private $ListDevoirs;
 
 	public function __construct($valeurs = array()){
 		if(!empty($valeurs)){
@@ -37,14 +38,15 @@ class Utilisateur{
 					break;
 			}
 			$db = Database::getInstance();
-			$manager = new ClasseManager($db);
-			$this->classeUt = $manager->getClasseById($this->getUtClassId());
+			$managerclasse = new ClasseManager($db);
+			$managerdevoirs = new LienUtilisateurEvenementManager($db);
+			$this->classeUt = $managerclasse->getClasseById($this->getUtClassId());
+			$this->ListDevoirs = $managerdevoirs->getAllDevoirsByIdUt($this->getUtClassId());
 		}
   }
 	public function isOK(){
 		return $this->isOK;
 	}
-
 	public function setUtId($valeur){
 		$this->idUtilisateur = $valeur;
 	}
@@ -75,5 +77,8 @@ class Utilisateur{
 	}
 	public function getUtClasse(){
 		return $this->classeUt;
+	}
+	public function getListDevoirs(){
+		return $this->ListDevoirs;
 	}
 }
