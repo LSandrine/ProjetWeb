@@ -26,19 +26,9 @@
         </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.php?page=0">Accueil
-                <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-    			<div id="connect">
     				<?php
     				if(isset($_SESSION['mail'])){
     					if(!is_null($_SESSION['idUtilisateur'])){ ?>
-						      <a class="nav-link" href="index.php?page=2">Déconnexion</a>
-            			</div>
-                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="index.php?page=7">Semainier</a>
                 </li>
@@ -56,8 +46,15 @@
                 <li id="liCo" class="nav-item">
                   <span class="mailCo"><?php echo $_SESSION['mail'];?> </span>
                 </li>
+                <li class="nav-item">
+                  <div id="connect">
+                  <a class="nav-link" href="index.php?page=2">Déconnexion</a>
+                  </div>
+                </li>
     					<?php
             }else{ ?>
+              <li class="nav-item">
+                <div id="connect">
                   <a class="nav-link" href="index.php?page=1">Connexion</a>
           			</div>
               </li>
@@ -67,16 +64,18 @@
     				  <?php
     					}
     				}else{ ?>
-              <a class="nav-link" href="index.php?page=1">Connexion</a>
-            </div>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="index.php?page=5">S'inscrire</a>
           </li>
-    				<?php } ?>
+          <li class="nav-item">
+            <div id="connect">
+              <a class="nav-link" href="index.php?page=1">Connexion</a>
+            </div>
+          </li>
+  				<?php } ?>
       </ul>
-    </div>
-  </div>
+    </div><!--navbarResponsive-->
+  </div><!--container-->
 </nav>
 <!-- NAV -->
 <!-- Separation -->
