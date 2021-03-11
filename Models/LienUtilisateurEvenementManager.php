@@ -18,7 +18,7 @@ class LienUtilisateurEvenementManager{
 	}
   public function getAll(){
     $ListeDev = array();
-    $req = $this->bd->prepare('SELECT idUtilisateur, idEvenement, fait FROM lienutilisateurevenement;');
+    $req = $this->bd->query('SELECT idUtilisateur, idEvenement, fait FROM lienutilisateurevenement;');
     while ($devoirs = $req->fetch(PDO::FETCH_OBJ) ) {
       $ListeDev[] = new LienUtilisateurEvenement($devoirs);
     }
@@ -35,3 +35,4 @@ class LienUtilisateurEvenementManager{
     $req->closeCursor();
     return $ListeDev;
   }
+}

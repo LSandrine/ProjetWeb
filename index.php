@@ -23,6 +23,7 @@ require_once "Models/EvenementClass.php";
 require_once "Models/EvenementManager.php";
 require_once "Models/TypeEvenementClass.php";
 require_once "Models/TypeEvenementManager.php";
+require_once "Models/LienUtilisateurEvenementManager.php";
 require_once "Models/MatiereClass.php";
 require_once "Models/MatiereManager.php";
 //Templates

@@ -37,4 +37,4 @@ switch ($page) {
   default : 	include_once('Template/accueil.php');
 }
 ?>
-</div>
+</div><!-- pages -->

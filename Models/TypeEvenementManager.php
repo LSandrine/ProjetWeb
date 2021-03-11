@@ -19,7 +19,7 @@ class TypeEvenementManager{
 
 	public function getAll(){
 		$ListeTypeEvt = array();
-		$req = $this->bd->prepare('SELECT idTypeEvenement, nom FROM typeevenement;');
+		$req = $this->bd->query('SELECT idTypeEvenement, nom FROM typeevenement;');
 		while ($typeevenement = $req->fetch(PDO::FETCH_OBJ) ) {
 			$ListeTypeEvt[] = new TypeEvenement($typeevenement);
 		}

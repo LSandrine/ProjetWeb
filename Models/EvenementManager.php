@@ -21,24 +21,32 @@ class EvenementManager{
 		$req->bindValue(':idType',$evenement->getEvtTypeId(),PDO::PARAM_INT);
 		$req->execute();
 	}
-
-
-		public function getAll(){
-			$ListeEv = array();
-			$req = $this->bd->prepare('SELECT idEvenement, nom, dateEvt, description, idMatiere, typeRendu, idClasse, idType FROM evenement;');
-			while ($evenement = $req->fetch(PDO::FETCH_OBJ) ) {
-				$ListeEv[] = new Evenement($evenement);
-			}
-			$req->closeCursor();
-			return $ListeEv;
+	public function getAll(){
+		$ListeEv = array();
+		$req = $this->bd->query('SELECT idEvenement, nom, dateEvt, description, idMatiere, typeRendu, idClasse, idType FROM evenement;');
+		while ($evenement = $req->fetch(PDO::FETCH_OBJ) ) {
+			$ListeEv[] = new Evenement($evenement);
 		}
-
-		public function getEvenementById($id){
-			$req = $this->bd->prepare('SELECT idEvenement, nom, dateEvt, description, idMatiere, typeRendu, idClasse, idType FROM evenement WHERE idEvenement = :idEvenement;');
-			$req->bindValue(':idEvenement', $id, PDO::PARAM_INT);
-			$req->execute();
-			$evenement = new Evenement($req->fetch(PDO::FETCH_OBJ));
-			$req->closeCursor();
-			return $evenement;
-		}
+		$req->closeCursor();
+		return $ListeEv;
 	}
+	public function getEvenementById($id){
+		$req = $this->bd->query('SELECT idEvenement, nom, dateEvt, description, idMatiere, typeRendu, idClasse, idType FROM evenement WHERE idEvenement = :idEvenement;');
+		$req->bindValue(':idEvenement', $id, PDO::PARAM_INT);
+		$req->execute();
+		$evenement = new Evenement($req->fetch(PDO::FETCH_OBJ));
+		$req->closeCursor();
+		return $evenement;
+	}
+	public function getEvenementsByIdClasse($idC){
+		$ListeEv = array();
+		$req = $this->bd->prepare('SELECT idEvenement, nom, dateEvt, description, idMatiere, typeRendu, idClasse, idType FROM evenement WHERE idClasse = :idClasse;');
+		$req->bindValue(':idClasse', $idC, PDO::PARAM_INT);
+		$req->execute();
+		while($event = $req->fetch(PDO::FETCH_OBJ)){
+			$ListeEv[] = new Evenement($event);
+		}
+		$req->closeCursor();
+		return $ListeEv;
+	}
+}
