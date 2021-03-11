@@ -1,12 +1,33 @@
 <?php
 
-require("../menu.php");
-include_once '../Models/ClasseManager.php';
-Configuration::setConfigurationFile('../database/configuration.ini');
+Configuration::setConfigurationFile('Database/configuration.ini');
 $db = Database::getInstance();
 $ClasseManager=new ClasseManager($db);
+$utilisateur=new UtilisateurManager($db);
 ?>
+<?php
+if( ( isset($_POST["mail"]) AND !empty($_POST["mail"])) AND ( isset($_POST["mdp"]) AND !empty($_POST["mdp"]))
+ AND ( isset($_POST["groupe"]) AND !empty($_POST["groupe"]))  AND ( isset($_POST["promotion"]) AND !empty($_POST["promotion"])     )     )
+ {
+     $verifMail=$utilisateur->existeUtilisateur($_POST["mail"]);
+     if($verifMail>0)
+     {
+       echo "<div style='COLOR: red;text-align: center;'>utilisateur existe déjà dans le systéme</div>";
+     }else {
 
+       $Classe=$ClasseManager->getClasseByPromoGrp($_POST["promotion"],$_POST["groupe"]);
+       $_POST['idClasse'] = $Classe->getClassId();
+
+       $Util = new Utilisateur($_POST);
+       $utilisateur->add($Util);
+
+
+
+
+     }
+ }
+
+ ?>
 
 <body>
   <div style="width: 500px;margin: auto;">
@@ -17,25 +38,26 @@ $ClasseManager=new ClasseManager($db);
 
  </div>
   <p class="h2 text-center" style="text-decoration: underline;">Formulaire d'inscription</p>
-  <form action="inscription.php" method="post" >
+  <form action="" method="post" >
             <div class="preview text-center">
                 <img class="preview-img" src="http://simpleicon.com/wp-content/uploads/account.png" alt="Preview Image" width="200" height="200"/>
             </div>
 
             <div class="form-group">
                 <label>mail 3il:</label>
-                <input class="form-control" type="email" name="email" required="required" placeholder="xyz@3il.fr" id="email" onkeyup="verifmail()"/>
+                <input class="form-control" type="email" name="mail" required="required" placeholder="xyz@3il.fr" id="email" onkeyup="verifmail()"/>
                 <span class="Error" id="varifemail" style="display:none;"> Veuillez renseigner correctement le champ</span>
             </div>
             <div class="form-group">
                 <label>mot de passse:</label>
-                <input class="form-control" type="password" name="password" required placeholder="mot de passe" id="password" onkeyup="verifPassword()"/>
+                <input class="form-control" type="password" name="mdp" required placeholder="mot de passe" id="password" onkeyup="verifPassword()"/>
                 <span class="Error"id="varifpassword" style="display:none;">Veuillez renseigner bien le champ (mini 5 caractéres)</span>
             </div>
 <?php
 //Cryptage du mdp
 	$salt = "48@!alsd";
-	$_POST['password'] = sha1(sha1($_POST['password']).$salt);
+  //action="index.php?page=4"
+	//$_POST['password'] = sha1(sha1($_POST['password']).$salt);
  ?>
             <div class="form-group">
                 <label>Promotion:</label><br/>
@@ -58,18 +80,17 @@ $ClasseManager=new ClasseManager($db);
                 <span class="Error"></span>
             </div>
             <div class="form-check" style="margin-left: 193px;">
-              <label class="form-check-label" for="exampleCheck1">Délégué</label>
-              <input type="checkbox" class="form-check-input" id="exampleCheck1"  style="margin-right: 63px;">
+              <label class="form-check-label" for="exampleCheck1">Délégué:</label>
+              <input type="checkbox" class="" id="exampleCheck1"  style="margin-right: 63px;"/>
            </div>
             <div class="form-group">
-              <button class="btn btn-primary btn-block" type="submit" name="button" onclick="inscription()" >inscription</button>
+              <button style="margin-bottom: 21px;"class="btn btn-primary btn-block" type="submit" name="button" onclick="inscription()" >inscription</button>
             </div>
         </form>
-        <div class="form-group">
-          <span style="font-weight: bold;color: red;display:none;" id='verif'>Veuillez renseigner tous les champs</span>
-        </div>
+
 </div>
 </body>
+
 
 <script type="text/javascript">
 

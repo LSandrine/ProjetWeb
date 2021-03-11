@@ -48,4 +48,13 @@ class UtilisateurManager{
 			$req->closeCursor();
 			return $utilisateur;
 	}
+
+	public function existeUtilisateur($email)
+	{
+		$req = $this->bd->prepare('SELECT mail FROM utilisateur WHERE mail = :mail ');
+    $req->bindValue(':mail', $email, PDO::PARAM_STR);
+		$req->execute();
+		return  $req->rowCount();
+	}
+
 }

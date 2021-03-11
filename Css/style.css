@@ -4,7 +4,6 @@ html,body{
 }
 .containerAddUtilisateur{
     width: 500px;
-    margin: 20px auto;
 }
 .preview{
     padding: 10px;
@@ -112,7 +111,7 @@ table, th, td, .semainier{
 	height:50px;
 	background-color:#343a40;
 	border-top:solid #444444 8px;
-	position:absolute;
+	position:relative;
 	bottom:0px;
 	box-shadow:0 -5px 5px #858585;
 	color:#CCCCCC;

@@ -1,7 +1,6 @@
 <?php
-require("../menu.php");
 
-Configuration::setConfigurationFile('../database/configuration.ini');
+Configuration::setConfigurationFile('Database/configuration.ini');
 $db = Database::getInstance();
 $ClasseManager=new ClasseManager($db);
 
@@ -11,6 +10,8 @@ if( ( isset($_POST["email"]) AND !empty($_POST["email"])) AND ( isset($_POST["pa
    {
     $Classe=$ClasseManager->getIdclasse($_POST["promotion"],$_POST["groupe"]);
     echo " ".$Classe->getClassId();
+    //$utilisateur= array($_POST["email"],$_POST["password"], "Toyota");
+
 
 
   echo "ooo";
