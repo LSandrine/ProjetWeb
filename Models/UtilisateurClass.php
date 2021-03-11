@@ -10,8 +10,10 @@ class Utilisateur{
 	private $mail;
 	private $mdp;
 	private $idClasse;
+	private $ListRole;
 	private $classeUt;
 	private $ListDevoirs;
+	private $delegue;
 
 	public function __construct($valeurs = array()){
 		if(!empty($valeurs)){
@@ -40,8 +42,11 @@ class Utilisateur{
 			$db = Database::getInstance();
 			$managerclasse = new ClasseManager($db);
 			$managerdevoirs = new LienUtilisateurEvenementManager($db);
+			$managerroll = new RoleManager($db);
 			$this->classeUt = $managerclasse->getClasseById($this->getUtClassId());
 			$this->ListDevoirs = $managerdevoirs->getAllDevoirsByIdUt($this->getUtClassId());
+			$this->ListRole = $managerroll->getRoleByUserId($this->getUtId());
+			$this->setUtDelegue();
 		}
   }
 	public function isOK(){
@@ -62,7 +67,15 @@ class Utilisateur{
 	public function setUtClasse($valeur){
 		$this->classeUt = $valeur;
 	}
-
+	public function setUtDelegue(){
+		foreach($this->ListRole as $role){
+			if($role->getRoleDelegue()){
+				$this->delegue = true;
+			}else{
+				$this->delegue = false;
+			}
+		}
+	}
 	public function getUtId(){
 		return $this->idUtilisateur;
 	}
@@ -80,5 +93,11 @@ class Utilisateur{
 	}
 	public function getListDevoirs(){
 		return $this->ListDevoirs;
+	}
+	public function getListRole(){
+		return $this->ListRole;
+	}
+	public function getUtDelegue(){
+		return $this->delegue;
 	}
 }

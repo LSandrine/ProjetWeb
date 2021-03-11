@@ -33,6 +33,7 @@ if(isset($_POST['mail'])){
 	<?php }else{ // connexion réussi
 		$_SESSION['idUtilisateur'] = $user->getUtId();
 		$_SESSION['mail'] = $user->getUtMail();
+		$_SESSION['delegue'] = $user->getUtDelegue();
 		header('Location: index.php');
 		exit();
 	}
