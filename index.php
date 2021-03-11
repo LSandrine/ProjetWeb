@@ -26,11 +26,15 @@ require_once "Models/TypeEvenementManager.php";
 require_once "Models/LienUtilisateurEvenementManager.php";
 require_once "Models/MatiereClass.php";
 require_once "Models/MatiereManager.php";
+require_once "Models/RoleClass.php";
+require_once "Models/RoleManager.php";
+
 //Templates
 require_once "Template/pages.php";
 //CORPS
 Configuration::setConfigurationFile('Database/configuration.ini');
 $db = Database::getInstance();
+
 ?>
 </div>
 <div id="spacer"></div>

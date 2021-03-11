@@ -40,11 +40,19 @@
             			</div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="index.php?page=6">Liste</a>
-                </li>
-                <li class="nav-item">
                   <a class="nav-link" href="index.php?page=7">Semainier</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.php?page=6">Liste des devoirs</a>
+                </li><?php
+              if($_SESSION['delegue'] == 1){ ?>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.php?page=3">Ajouter un evenement</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.php?page=3">Modifier un evenement</a>
+                </li>
+              <?php } ?>
                 <li id="liCo" class="nav-item">
                   <span class="mailCo"><?php echo $_SESSION['mail'];?> </span>
                 </li>

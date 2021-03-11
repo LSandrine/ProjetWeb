@@ -5,7 +5,7 @@ $managerevent=new EvenementManager($db);
 $manageruser=new UtilisateurManager($db);
 if(isset($_SESSION['idUtilisateur'])) {
 $user = $manageruser->getUtilisateurById($_SESSION['idUtilisateur']);
-$ListEvent = $managerevent->getEvenementsByIdClasse($user->getUtId());
+$ListEvent = $managerevent->getEvenementsByIdClasse($user->getUtClassId());
 ?>
 <div class="containerEvent">
   <div class="listeEvent">
