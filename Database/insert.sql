@@ -1,4 +1,4 @@
-INSERT INTO `role` (`nomRole`) VALUES ()'eleve'), ('delegue');
+INSERT INTO `role` (`nomRole`) VALUES ('eleve'), ('delegue');
 INSERT INTO `classe` (`promotion`, `groupe`, `anneeDiplome`) VALUES
 ('I2', 'G2', '2022'),
 ('I2', 'G3', '2022'),
@@ -43,7 +43,7 @@ INSERT INTO `evenement` (`nom`, `date`, `description`, `idMatiere`, `typeRendu`,
 ('EI AnaNum', '2021-04-15', 'Euler Taylor2 RungeKutta', '4', '', '1', '2'),
 ('DS Sécurité', '2021-01-12', '', '5', '', '2', '1')
 ;
-INSERT INTO `lienutilisateurrole` (`idRole`, `idUtilisateur`, `valide`) VALUES
+INSERT INTO `lienutilisateurrole` (`idUtilisateur`, `idRole`, `valide`) VALUES
 ('1', '2', ''),
 ('2', '1', ''),
 ('3', '1', ''),

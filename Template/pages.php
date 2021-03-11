@@ -20,11 +20,11 @@ switch ($page) {
       break;
   case 4:
   	// inclure page ajouterUtilisateur
-  	include("Template/ajouterUtilisateur.php");
+  	include("Template/inscription.php");
       break;
   case 5:
   	// inclure page inscription
-  	include("Template/inscription.php");
+  	include("Template/ajouterUtilisateur.php");
       break;
   case 6:
   	// inclure page listerEvenement
