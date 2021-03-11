@@ -19,7 +19,7 @@ class MatiereManager{
 
 	public function getAll(){
 		$ListeMat = array();
-		$req = $this->bd->prepare('SELECT idMatiere, nom FROM matiere;');
+		$req = $this->bd->query('SELECT idMatiere, nom FROM matiere;');
 		while ($matiere = $req->fetch(PDO::FETCH_OBJ) ) {
 			$ListeMat[] = new Matiere($matiere);
 		}

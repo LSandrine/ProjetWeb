@@ -31,15 +31,10 @@ if(isset($_POST['mail'])){
 	if(!$user->isOk()){	// mauvais couple login/mdp ?>
 		<p>Erreur, login ou mot de passe incorrect.</p>
 	<?php }else{ // connexion réussi
-		$_SESSION['idClasse'] = $user->getUtId();
+		$_SESSION['idUtilisateur'] = $user->getUtId();
 		$_SESSION['mail'] = $user->getUtMail();
 		header('Location: index.php');
 		exit();
 	}
 }
-
-    echo '<pre>';
-    print_r($_SESSION);
-    print_r($user);
-    echo '</pre>';
 ?>

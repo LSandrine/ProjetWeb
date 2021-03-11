@@ -21,7 +21,7 @@ class ClasseManager{
 
 	public function getAll(){
 		$ListeClass = array();
-		$req = $this->bd->prepare('SELECT idClasse, promotion, groupe, anneeDiplome FROM classe;');
+		$req = $this->bd->query('SELECT idClasse, promotion, groupe, anneeDiplome FROM classe;');
 		while ($classe = $req->fetch(PDO::FETCH_OBJ) ) {
 			$ListeClass[] = new Classe($classe);
 		}
@@ -34,12 +34,11 @@ class ClasseManager{
 		$req->bindValue(':idClasse', $id, PDO::PARAM_INT);
 		$req->execute();
 		$classe = new Classe($req->fetch(PDO::FETCH_OBJ));
-		$req->closeCursor();
 		return $classe;
 	}
 	public function getPromotion(){
 		$ListPromo = array();
-		$response = $this->bd->prepare('SELECT distinct promotion FROM classe;');
+		$response = $this->bd->query('SELECT distinct promotion FROM classe;');
 		$response->execute();
 		while ($prom = $response->fetch() ) {
 			$ListPromo[] = $prom;
@@ -48,7 +47,7 @@ class ClasseManager{
 	}
 	public function getGroupe(){
 		$ListGrp = array();
-		$response = $this->bd->prepare('SELECT distinct groupe FROM classe;');
+		$response = $this->bd->query('SELECT distinct groupe FROM classe;');
 		$response->execute();
 		while ($grp = $response->fetch() ) {
 			$ListGrp[] = $grp;
@@ -61,7 +60,6 @@ class ClasseManager{
 		$req->bindValue(':groupe', $grp, PDO::PARAM_STR);
 		$req->execute();
 		$classe = new Classe($req->fetch(PDO::FETCH_OBJ));
-		$req->closeCursor();
 		return $classe;
 	}
 }
