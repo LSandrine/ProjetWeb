@@ -4,9 +4,10 @@ Configuration::setConfigurationFile('Database/configuration.ini');
 $db = Database::getInstance();
 $ClasseManager=new ClasseManager($db);
 $utilisateur=new UtilisateurManager($db);
+$RoleManager=new RoleManager($db);
 ?>
 <?php
-if( ( isset($_POST["mail"]) AND !empty($_POST["mail"])) AND ( isset($_POST["mdp"]) AND !empty($_POST["mdp"]))
+if( ( isset($_POST["mail"]) AND !empty($_POST["mail"]) ) AND ( isset($_POST["mdp"]) AND !empty($_POST["mdp"]))
  AND ( isset($_POST["groupe"]) AND !empty($_POST["groupe"]))  AND ( isset($_POST["promotion"]) AND !empty($_POST["promotion"])     )     )
  {
      $verifMail=$utilisateur->existeUtilisateur($_POST["mail"]);
@@ -14,12 +15,28 @@ if( ( isset($_POST["mail"]) AND !empty($_POST["mail"])) AND ( isset($_POST["mdp"
      {
        echo "<div style='COLOR: red;text-align: center;'>utilisateur existe déjà dans le systéme</div>";
      }else {
+            $Classe=$ClasseManager->getClasseByPromoGrp($_POST["promotion"],$_POST["groupe"]);
+            $_POST['idClasse'] = $Classe->getClassId();
+            $idUtilisateur=$utilisateur->getLastId();
 
-       $Classe=$ClasseManager->getClasseByPromoGrp($_POST["promotion"],$_POST["groupe"]);
-       $_POST['idClasse'] = $Classe->getClassId();
+           if(isset($_POST["delegue"]) AND !empty($_POST["delegue"]))
+           {
+             $Util = new Utilisateur($_POST);
+             $utilisateur->add($Util);
+             $RoleManager->addLien("2",$idUtilisateur);
+             $RoleManager->addLien("1",$idUtilisateur);
+             header("Location: index.php?page=1");
 
-       $Util = new Utilisateur($_POST);
-       $utilisateur->add($Util);
+           }else {
+             $Util = new Utilisateur($_POST);
+             $utilisateur->add($Util);
+             $RoleManager->addLien("1",$idUtilisateur);
+             header("Location: index.php?page=1");
+
+           }
+
+
+
 
 
 
@@ -80,8 +97,8 @@ if( ( isset($_POST["mail"]) AND !empty($_POST["mail"])) AND ( isset($_POST["mdp"
                 <span class="Error"></span>
             </div>
             <div class="form-check" style="margin-left: 193px;">
-              <label class="form-check-label" for="exampleCheck1">Délégué:</label>
-              <input type="checkbox" class="" id="exampleCheck1"  style="margin-right: 63px;"/>
+              <label class="form-check-label" >Délégué:</label>
+              <input type="checkbox" name="delegue" value="1" style="margin-right: 63px;"/>
            </div>
             <div class="form-group">
               <button style="margin-bottom: 21px;"class="btn btn-primary btn-block" type="submit" name="button" onclick="inscription()" >inscription</button>

@@ -1,4 +1,3 @@
-<h1>Pour vous connecter</h1>
 
 <?php
 $user = 0;
@@ -12,11 +11,11 @@ else{
 }
 ?>
 
-<form action="#" method="POST">
+<!--<form action="#" method="POST">
 	<span class="labelC">Mail 3iL : </span><br><input class="champ" type="text" name="mail" value="<?php echo $mail; ?>"><br>
 	<span class="labelC">Mot de passe : </span><br><input class="champ" type="password" name="mdp" value="<?php echo $mdp; ?>"><br>
 	<input class="bouton" type="submit" value="Valider">
-</form>
+</form>-->
 
 <?php
 if(isset($_POST['mail'])){
@@ -29,7 +28,9 @@ if(isset($_POST['mail'])){
 	$user = $manageruser->getUtAvecMailMdp($mail, $mdp);
 
 	if(!$user->isOk()){	// mauvais couple login/mdp ?>
-		<p>Erreur, login ou mot de passe incorrect.</p>
+
+		<div style='COLOR: red;text-align: center;'>Erreur, login ou mot de passe incorrect</div>;
+
 	<?php }else{ // connexion réussi
 		$_SESSION['idUtilisateur'] = $user->getUtId();
 		$_SESSION['mail'] = $user->getUtMail();
@@ -38,4 +39,24 @@ if(isset($_POST['mail'])){
 		exit();
 	}
 }
+
 ?>
+
+
+<body>
+  <div class="login-form">
+      <form action="" method="post">
+          <h2 class="text-center">connexion</h2>
+          <div class="form-group">
+              <input  class="form-control" type="email" name="mail" required="required" placeholder="xyz@3il.fr">
+          </div>
+          <div class="form-group">
+              <input type="password" class="form-control" placeholder="mot de passe" required="required" name="mdp">
+          </div>
+          <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block">Log in</button>
+          </div>
+
+      </form>
+  </div>
+  </body>
