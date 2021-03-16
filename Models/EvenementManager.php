@@ -49,4 +49,17 @@ class EvenementManager{
 		$req->closeCursor();
 		return $ListeEv;
 	}
+	public function getAllDate(){
+		$ListeEv = array();
+		$req = $this->bd->prepare('SELECT DISTINCT dateEvt FROM evenement;');
+		$req->execute();
+		while($date = $req->fetch(PDO::FETCH_OBJ)){
+			$ListeEv[] = $date;
+		}
+		$req->closeCursor();
+		return $ListeEv;
+	}
+	public function getEventByDateId($date,$idClasse){
+
+	}
 }
