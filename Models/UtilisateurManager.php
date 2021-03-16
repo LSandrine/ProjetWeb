@@ -56,5 +56,11 @@ class UtilisateurManager{
 		$req->execute();
 		return  $req->rowCount();
 	}
+	public function getLastId(){
+		$req = $this->bd->prepare('SELECT max(idUtilisateur) as maxId FROM utilisateur;');
+		$req->execute();
+		$reqUser = $req -> fetch(PDO::FETCH_ASSOC);
+		return $reqUser['maxId'];
+	}
 
 }

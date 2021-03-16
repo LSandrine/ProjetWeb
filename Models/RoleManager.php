@@ -15,6 +15,12 @@ class RoleManager{
 		$req->bindValue(':nomRole',$role->getRoleNom(),PDO::PARAM_STR);
 		$req->execute();
 	}
+  public function addLien($idRole,$idUtilisateur){
+		$req = $this->bd->prepare('INSERT INTO lienutilisateurrole(idUtilisateur,idRole) VALUES (:idUtilisateur, :idRole);');
+		$req->bindValue(':idRole',$idRole,PDO::PARAM_INT);
+		$req->bindValue(':idUtilisateur',$idUtilisateur,PDO::PARAM_INT);
+		$req->execute();
+	}
 	public function getAll(){
 		$ListeR = array();
 		$req = $this->bd->query('SELECT role.idRole, nomRole,idUtilisateur FROM role INNER JOIN lienutilisateurrole ON lienutilisateurrole.idRole = role.idRole;');
