@@ -25,7 +25,7 @@ if(isset($_POST['mail'])){
 	$salt = "48@!alsd";
 	$mdp_crypte = sha1(sha1($mdp) . $salt);
 
-	$user = $manageruser->getUtAvecMailMdp($mail, $mdp);
+	$user = $manageruser->getUtAvecMailMdp($mail, $mdp_crypte);
 
 	if(!$user->isOk()){	// mauvais couple login/mdp ?>
 

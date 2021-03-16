@@ -34,25 +34,12 @@ if( ( isset($_POST["mail"]) AND !empty($_POST["mail"]) ) AND ( isset($_POST["mdp
              header("Location: index.php?page=1");
 
            }
-
-
-
-
-
-
-
      }
  }
 
  ?>
-
-<body>
   <div style="width: 500px;margin: auto;">
-
-
  <div class="containerAddUtilisateur">
-
-
  </div>
   <p class="h2 text-center" style="text-decoration: underline;">Formulaire d'inscription</p>
   <form action="" method="post" >
@@ -73,8 +60,7 @@ if( ( isset($_POST["mail"]) AND !empty($_POST["mail"]) ) AND ( isset($_POST["mdp
 <?php
 //Cryptage du mdp
 	$salt = "48@!alsd";
-  //action="index.php?page=4"
-	//$_POST['password'] = sha1(sha1($_POST['password']).$salt);
+	$_POST['mdp'] = sha1(sha1($_POST['mdp']).$salt);
  ?>
             <div class="form-group">
                 <label>Promotion:</label><br/>
@@ -106,12 +92,3 @@ if( ( isset($_POST["mail"]) AND !empty($_POST["mail"]) ) AND ( isset($_POST["mdp
         </form>
 
 </div>
-</body>
-
-
-<script type="text/javascript">
-
-
-
-
-</script>
