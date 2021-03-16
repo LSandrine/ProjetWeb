@@ -6,6 +6,10 @@ $manageruser=new UtilisateurManager($db);
 if(isset($_SESSION['idUtilisateur'])) {
 $user = $manageruser->getUtilisateurById($_SESSION['idUtilisateur']);
 $ListEvent = $managerevent->getEvenementsByIdClasse($user->getUtClassId());
+
+echo "<pre>";
+print_r($managerevent->getAllDate());
+echo "</pre>";
 ?>
 <div class="containerEvent">
   <div class="listeEvent">
