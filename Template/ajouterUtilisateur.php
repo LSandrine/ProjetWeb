@@ -15,6 +15,9 @@ if( ( isset($_POST["mail"]) AND !empty($_POST["mail"]) ) AND ( isset($_POST["mdp
      {
        echo "<div style='COLOR: red;text-align: center;'>utilisateur existe déjà dans le systéme</div>";
      }else {
+           //Cryptage du mdp
+           	$salt = "48@!alsd";
+           	$_POST['mdp'] = sha1(sha1($_POST['mdp']).$salt);
             $Classe=$ClasseManager->getClasseByPromoGrp($_POST["promotion"],$_POST["groupe"]);
             $_POST['idClasse'] = $Classe->getClassId();
             $idUtilisateur=$utilisateur->getLastId();
@@ -57,11 +60,6 @@ if( ( isset($_POST["mail"]) AND !empty($_POST["mail"]) ) AND ( isset($_POST["mdp
                 <input class="form-control" type="password" name="mdp" required placeholder="mot de passe" id="password" onkeyup="verifPassword()"/>
                 <span class="Error"id="varifpassword" style="display:none;">Veuillez renseigner bien le champ (mini 5 caractéres)</span>
             </div>
-<?php
-//Cryptage du mdp
-	$salt = "48@!alsd";
-	$_POST['mdp'] = sha1(sha1($_POST['mdp']).$salt);
- ?>
             <div class="form-group">
                 <label>Promotion:</label><br/>
                 <select class="form-control" name="promotion">
