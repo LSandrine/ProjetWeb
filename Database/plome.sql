@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `lienutilisateurrole` (
 -- Déchargement des données de la table `lienutilisateurrole`
 --
 
-INSERT INTO `lienutilisateurrole` (`idRole`, `idUtilisateur`, `valide`) VALUES
+INSERT INTO `lienutilisateurrole` (`idUtilisateur`, `idRole`, `valide`) VALUES
 (1, 1, 0),
 (1, 2, 0),
 (2, 1, 0),
