@@ -17,8 +17,8 @@ class RoleManager{
 	}
   public function addLien($idRole,$idUtilisateur){
 		$req = $this->bd->prepare('INSERT INTO lienutilisateurrole(idUtilisateur,idRole) VALUES (:idUtilisateur, :idRole);');
-		$req->bindValue(':idRole',$idRole,PDO::PARAM_INT);
 		$req->bindValue(':idUtilisateur',$idUtilisateur,PDO::PARAM_INT);
+		$req->bindValue(':idRole',$idRole,PDO::PARAM_INT);
 		$req->execute();
 	}
 	public function getAll(){

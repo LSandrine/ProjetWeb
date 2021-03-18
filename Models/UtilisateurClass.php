@@ -68,11 +68,10 @@ class Utilisateur{
 		$this->classeUt = $valeur;
 	}
 	public function setUtDelegue(){
+		$this->delegue = false;
 		foreach($this->ListRole as $role){
 			if($role->getRoleDelegue()){
 				$this->delegue = true;
-			}else{
-				$this->delegue = false;
 			}
 		}
 	}
