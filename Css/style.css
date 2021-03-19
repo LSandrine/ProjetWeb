@@ -188,3 +188,43 @@ table, th, td, .semainier{
 
     padding: 10px;
 }
+/* Liste des devoirs (listerEvenement.php) */
+.jourList{
+  margin-left: 10px;
+  color: #343a40;
+  font-family: Helvetica;
+  font-size: 30px;
+  font-weight: 550;
+  line-height: 60px;
+  text-align: center;
+}
+.dateList{
+  margin-left:10px;
+  font-size:13px;
+  color: #343a40;
+  font-family: 'Merriweather', sans-serif;
+}
+.elemDevoirs{
+  background-color: #ffffff;
+  margin: 10px;
+  border: 1px solid #000000;
+  border-top:0px;
+  border-left: 10px solid #DEB4AA;
+  box-shadow: -5px -5px 5px 0px #343a40;
+}
+/*73C6B6*/
+/*A1C0BB*/
+/*ABD5C5*/
+/*F79C8F*/
+/*E6927A*/
+/*DEB4AA*/
+.txtJour{
+  background-color:#DEB4AA;
+  box-shadow: 4px 0px 5px 0px #343a40;
+}
+.txtDevoir{
+  margin-left: 50px;
+}
+/*SEMAINE COLOR*/
+.elemD1{border-left: 5px solid #DEB4AA;}.jourD1{background-color:#DEB4AA;}.elemD2{border-left: 5px solid #DECEAA;}.jourD2{background-color:#DECEAA;}.elemD3{border-left: 5px solid #D4DEAA;}.jourD3{background-color:#D4DEAA;}.elemD4{border-left: 5px solid #BADEAA;}.jourD4{background-color:#BADEAA;}.elemD5{border-left: 5px solid #AADEB4;}.jourD5{background-color:#AADEB4;}.elemD6{border-left: 5px solid #AADECE;}.jourD6{background-color:#AADECE;}.elemD0{border-left: 5px solid #AAD4DE;}.jourD0{background-color:#AAD4DE;}
+/*FIN SEMAINE COLOR*/
