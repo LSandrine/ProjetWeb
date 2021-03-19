@@ -28,9 +28,7 @@ if(isset($_POST['mail'])){
 	$user = $manageruser->getUtAvecMailMdp($mail, $mdp_crypte);
 
 	if(!$user->isOk()){	// mauvais couple login/mdp ?>
-
 		<div style='COLOR: red;text-align: center;'>Erreur, login ou mot de passe incorrect</div>;
-
 	<?php }else{ // connexion réussi
 		$_SESSION['idUtilisateur'] = $user->getUtId();
 		$_SESSION['mail'] = $user->getUtMail();

@@ -20,12 +20,12 @@ if( ( isset($_POST["mail"]) AND !empty($_POST["mail"]) ) AND ( isset($_POST["mdp
            	$_POST['mdp'] = sha1(sha1($_POST['mdp']).$salt);
             $Classe=$ClasseManager->getClasseByPromoGrp($_POST["promotion"],$_POST["groupe"]);
             $_POST['idClasse'] = $Classe->getClassId();
-            $idUtilisateur=($utilisateur->getLastId())+1;
 
            if(isset($_POST["delegue"]) AND !empty($_POST["delegue"]))
            {
              $Util = new Utilisateur($_POST);
              $utilisateur->add($Util);
+             $idUtilisateur=$utilisateur->getLastId();
              $RoleManager->addLien("2",$idUtilisateur);
              $RoleManager->addLien("1",$idUtilisateur);
              header("Location: index.php?page=1");
@@ -33,6 +33,7 @@ if( ( isset($_POST["mail"]) AND !empty($_POST["mail"]) ) AND ( isset($_POST["mdp
            }else {
              $Util = new Utilisateur($_POST);
              $utilisateur->add($Util);
+             $idUtilisateur=$utilisateur->getLastId();
              $RoleManager->addLien("1",$idUtilisateur);
              header("Location: index.php?page=1");
            }
