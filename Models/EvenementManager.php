@@ -61,6 +61,21 @@ class EvenementManager{
 		return $ListeEv;
 	}
 
+
+	public function getEvenementsByIdClasseAndDate($idC, $dateEvt){
+		$ListeEv = array();
+		$req = $this->bd->prepare('SELECT idEvenement, nom, dateEvt, description, idMatiere, typeRendu, idClasse, idType FROM evenement WHERE idClasse = :idClasse;');
+		$req->bindValue(':idClasse', $idC, PDO::PARAM_INT);
+		$req->bindValue(':dateEvt', $dateEvt, PDO::PARAM_DATE);
+		$req->execute();
+		while($event = $req->fetch(PDO::FETCH_OBJ)){
+			$ListeEv[] = new Evenement($event);
+		}
+		$req->closeCursor();
+		return $ListeEv;
+	}
+
+
 	public function getAllDateByClasse($idClasse){
 		$ListeEv = array();
 		$req = $this->bd->prepare('SELECT DISTINCT dateEvt FROM evenement WHERE idClasse = :idClasse  ORDER BY dateEvt ASC;');
