@@ -3,7 +3,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <?php		$title = "Bienvenue sur PLOME !";?>
+    <?php		$title = "PLOME";?>
     <title>
     <?php echo $title ?>
     </title>

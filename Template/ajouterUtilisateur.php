@@ -1,5 +1,7 @@
 <?php
-
+ $options = [
+     'cost' => 12,
+ ];
 Configuration::setConfigurationFile('Database/configuration.ini');
 $db = Database::getInstance();
 $ClasseManager=new ClasseManager($db);
@@ -16,8 +18,7 @@ if( ( isset($_POST["mail"]) AND !empty($_POST["mail"]) ) AND ( isset($_POST["mdp
        echo "<div style='COLOR: red;text-align: center;'>utilisateur existe déjà dans le systéme</div>";
      }else {
            //Cryptage du mdp
-           	$salt = "48@!alsd";
-           	$_POST['mdp'] = sha1(sha1($_POST['mdp']).$salt);
+           	$_POST['mdp'] = password_hash($_POST['mdp'], PASSWORD_BCRYPT, $options);
             $Classe=$ClasseManager->getClasseByPromoGrp($_POST["promotion"],$_POST["groupe"]);
             $_POST['idClasse'] = $Classe->getClassId();
 
