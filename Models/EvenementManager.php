@@ -64,9 +64,9 @@ class EvenementManager{
 
 	public function getEvenementsByIdClasseAndDate($idC, $dateEvt){
 		$ListeEv = array();
-		$req = $this->bd->prepare('SELECT idEvenement, nom, dateEvt, description, idMatiere, typeRendu, idClasse, idType FROM evenement WHERE idClasse = :idClasse;');
+		$req = $this->bd->prepare('SELECT idEvenement, nom, dateEvt, description, idMatiere, typeRendu, idClasse, idType FROM evenement WHERE idClasse = :idClasse AND dateEvt = :dateEvt;');
 		$req->bindValue(':idClasse', $idC, PDO::PARAM_INT);
-		$req->bindValue(':dateEvt', $dateEvt, PDO::PARAM_DATE);
+		$req->bindValue(':dateEvt', $dateEvt, PDO::PARAM_STR);
 		$req->execute();
 		while($event = $req->fetch(PDO::FETCH_OBJ)){
 			$ListeEv[] = new Evenement($event);

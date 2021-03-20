@@ -1,29 +1,36 @@
 <?php
 Configuration::setConfigurationFile('Database/configuration.ini');
 $db = Database::getInstance();
-$ClasseManager=new ClasseManager($db);
-$managerevent=new EvenementManager($db);
-$manageruser=new UtilisateurManager($db);
+$managerEvent = new EvenementManager($db);
+$managerUser = new UtilisateurManager($db);
 if(isset($_SESSION['idUtilisateur'])) {
-$user = $manageruser->getUtilisateurById($_SESSION['idUtilisateur']);
-$week=0;
+$user = $managerUser->getUtilisateurById($_SESSION['idUtilisateur']);
+$classe = $user->getUtClassId();
+$week = 0;
+$lundi = strtotime("this week + $week week + 0 day");
+$mardi = strtotime("this week + $week week + 1 day");
+$mercredi = strtotime("this week + $week week + 2 day");
+$jeudi = strtotime("this week + $week week + 3 day");
+$vendredi = strtotime("this week + $week week + 4 day");
+$samedi = strtotime("this week + $week week + 5 day");
+$dimanche = strtotime("this week + $week week + 6 day");
 ?>
 
  <body>
 
    <table class="table" style="width:95%; margin:auto;">
-     <a class="float-left" style="margin-left:10px;" href="">
+     <a class="float-left" style="margin-left:10px;" href="<?=previousWeek() ?>">
        <img border="0" alt="fleche gauche" src="Css/images/fleche-gauche.png" width="25" height="25">
      </a>
     <thead>
       <tr>
-        <th class="semainier">Lundi <?php echo date('d/m', strtotime("this week + $week week + 0 day")) ?></th>
-        <th class="semainier">Mardi <?php echo date('d/m', strtotime("this week + $week week + 1 day")) ?></th>
-        <th class="semainier">Mercredi <?php echo date('d/m', strtotime("this week + $week week + 2 day")) ?></th>
-        <th class="semainier">Jeudi <?php echo date('d/m', strtotime("this week + $week week + 3 day")) ?></th>
-        <th class="semainier">Vendredi <?php echo date('d/m', strtotime("this week + $week week + 4 day")) ?></th>
-        <th class="semainier">Samedi <?php echo date('d/m', strtotime("this week + $week week + 5 day")) ?></th>
-        <th class="semainier">Dimanche <?php echo date('d/m', strtotime("this week + $week week + 6 day")) ?></th>
+        <th class="semainier">Lundi <?php echo date('d/m', $lundi) ?></th>
+        <th class="semainier">Mardi <?php echo date('d/m', $mardi) ?></th>
+        <th class="semainier">Mercredi <?php echo date('d/m', $mercredi) ?></th>
+        <th class="semainier">Jeudi <?php echo date('d/m', $jeudi) ?></th>
+        <th class="semainier">Vendredi <?php echo date('d/m', $vendredi) ?></th>
+        <th class="semainier">Samedi <?php echo date('d/m', $samedi) ?></th>
+        <th class="semainier">Dimanche <?php echo date('d/m', $dimanche) ?></th>
       </tr>
     </thead>
     <a class="float-right" style="margin-right:10px;">
@@ -33,6 +40,8 @@ $week=0;
       <tr>
         <td>
           devoirs L
+
+          <?php getDevoirs($managerEvent, $classe, $lundi); ?>
         </td>
         <td>
           devoirs Ma
@@ -56,13 +65,24 @@ $week=0;
     </tbody>
   </table>
 
-  <?php
-  $date = date("Y-m-d");
-  $numSemaine = strftime("%U");
-  echo $date . " : " . $numSemaine . "<br>";
-  echo date ("WY", strtotime($date))  . "<br>";
-  $firstday = date('l - d/m', strtotime("this week"));
-  echo $firstday
-   ?>
 </body>
-<?php } ?>
+<?php
+}
+function getDevoirs($managerEvent, $classe, $jour){
+  $managerEvent->getEvenementsByIdClasseAndDate($classe, date('Y-m-d', $jour));
+  echo $managerEvent->getEvtNom();
+  echo $managerEvent->getEvtDescription();
+  echo ($managerEvent->getEvtMatiere())->getMatNom();
+  echo $managerEvent->getEvtTypeRendu();
+  echo $managerEvent->getEvtType()->getTypeEvenementNom();
+}
+
+function previousWeek(){
+  $week--;
+  echo $week;
+}
+
+function nextWeek(){
+  $week++;
+}
+?>
