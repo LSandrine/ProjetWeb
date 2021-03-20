@@ -22,25 +22,18 @@ if(isset($_POST['mail'])){
   Configuration::setConfigurationFile('Database/configuration.ini');
   $db = Database::getInstance();
 	$manageruser = new UtilisateurManager($db);
-	$salt = "48@!alsd";
-	$mdp_crypte = sha1(sha1($mdp) . $salt);
-
-	$user = $manageruser->getUtAvecMailMdp($mail, $mdp_crypte);
-
-	if(!$user->isOk()){	// mauvais couple login/mdp ?>
-		<div style='COLOR: red;text-align: center;'>Erreur, login ou mot de passe incorrect</div>;
-	<?php }else{ // connexion réussi
-		$_SESSION['idUtilisateur'] = $user->getUtId();
-		$_SESSION['mail'] = $user->getUtMail();
-		$_SESSION['delegue'] = $user->getUtDelegue();
-		header('Location: index.php');
-		exit();
-	}
+	$user = $manageruser->getUtAvecMailMdp($mail);
+	if (password_verify($mdp, $user->getUtMdp())) {
+			$_SESSION['idUtilisateur'] = $user->getUtId();
+			$_SESSION['mail'] = $user->getUtMail();
+			$_SESSION['delegue'] = $user->getUtDelegue();
+			header('Location: index.php');
+			exit();
+	} else { ?>
+	    	<div style='COLOR: red;text-align: center;'>Erreur, login ou mot de passe incorrect</div>;
+	<?php }
 }
-
 ?>
-
-
 <body>
   <div class="login-form">
       <form action="" method="post">

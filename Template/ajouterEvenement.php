@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION['delegue']) && !empty($_SESSION['delegue'])){
+if($_SESSION['delegue'] == 1){
+
 Configuration::setConfigurationFile('Database/configuration.ini');
 $db = Database::getInstance();
 $managerevent=new EvenementManager($db);
@@ -91,4 +94,14 @@ if(!isset($_POST['nom']) && !isset($_POST['dateEvt']) && !isset($_POST['descEvt'
     		$event = new Evenement($_POST);
     		$managerevent->add($event);
     		?> <p> l'événement a bien été ajouté</p>
-<?php } ?>
+<?php }
+}else{?>
+  <div style='COLOR: red;text-align: center;font-size:30px;'>OUPS ... Erreur 404, page not found !</div>
+  <a class="nav-link" style='text-align: center;font-size:60px;' href="index.php?page=0">Retour à l'accueil</a>
+<?php }
+}else{?>
+  <div style='COLOR: red;text-align: center;font-size:30px;'>OUPS ... Erreur 404, page not found !</div>
+  <a class="nav-link" style='text-align: center;font-size:60px;' href="index.php?page=0">Retour à l'accueil</a>
+<?php
+}
+?>
