@@ -32,10 +32,10 @@ class LienUtilisateurEvenement{
 		$this->idUtilisateur = $valeur;
 	}
 	public function setEventId($valeur){
-		$this->idUtilisateur = $valeur;
+		$this->idEvenement = $valeur;
 	}
 	public function setFait($valeur){
-		$this->idUtilisateur = $valeur;
+		$this->fait = $valeur;
 	}
 	public function getUtId(){
 		return $this->idUtilisateur;

@@ -25,6 +25,7 @@ require_once "Models/TypeEvenementClass.php";
 require_once "Models/TypeEvenementManager.php";
 require_once "Models/LienUtilisateurEvenementManager.php";
 require_once "Models/MatiereClass.php";
+require_once "Models/LienUtilisateurEvenementClass.php";
 require_once "Models/MatiereManager.php";
 require_once "Models/RoleClass.php";
 require_once "Models/RoleManager.php";

@@ -3,6 +3,7 @@ Configuration::setConfigurationFile('Database/configuration.ini');
 $db = Database::getInstance();
 $managerevent=new EvenementManager($db);
 $manageruser=new UtilisateurManager($db);
+$managerlien=new LienUtilisateurEvenementManager($db);
 if(isset($_SESSION['idUtilisateur'])) {
 $user = $manageruser->getUtilisateurById($_SESSION['idUtilisateur']);
 $ListEvent = $managerevent->getEvenementsByIdClasse($user->getUtClassId());
@@ -46,15 +47,19 @@ $ListDevByDate = $managerevent->getEventByDateId($listDate,$user->getUtClassId()
         <?php foreach($eventDate["evt"] as $event){?>
           <div class="txtDevoir">
               <div class="descDevoir">
-                  <span>Nom</span><p><?php echo $event->getEvtNom() ?></p>
-                  <span>Desc</span><p><?php echo $event->getEvtDescription() ?></p>
-                  <span>Matiere</span><p><?php echo (($event->getEvtMatiere())->getMatNom()) ?></p>
-                  <span>Rendu</span><p><?php echo $event->getEvtTypeRendu() ?></p>
-                  <span>Type</span><p><?php echo $event->getEvtType()->getTypeEvenementNom() ?></p>
+                  <span class="nomDev"><?php echo $event->getEvtNom() ?></span>
+                  <span class="matDev"> | <?php echo (($event->getEvtMatiere())->getMatNom()) ?></span></br>
+                  <span class="descDev"><?php echo $event->getEvtDescription() ?></span></br>
+                  <span class="renDev"><?php echo $event->getEvtTypeRendu() ?></span></br>
+                  <span class="typeDev"><?php echo $event->getEvtType()->getTypeEvenementNom() ?></span>
               </div><!-- class = descDevoir -->
               <div class="cocheDevoir"  style="border: 2px solid #ffc800;">
-                  <p><?php echo "Fait / Pas Fait" ?></p>
-              </div><!-- class = descDevoir -->
+                  <input type="checkbox" id="cocheDevoir" name="fait" <?php
+                  $fait = $managerlien->getDevoirsCheck($user->getUtId(),$event->getEvtId());
+                  if($fait->getFait()==true){
+                      echo "checked";
+                  } ?>><label for="fait">TERMINÉ</label>
+              </div><!-- class = cocheDevoir -->
           </div><!-- class = txtDevoir -->
       <?php } ?>
     </div><!-- class = elemDevoirs -->
