@@ -61,6 +61,14 @@ table, th, td, .semainier{
     text-align: center;
 }
 
+.devoirsSemaine{
+    border: 2px solid black;
+}
+
+.tdSemainier{
+    width: 14.3%;
+}
+
 /* NAVBAR (header) */
 .navbar {
     height: 50px;

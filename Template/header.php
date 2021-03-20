@@ -30,7 +30,7 @@
     				if(isset($_SESSION['mail'])){
     					if(!is_null($_SESSION['idUtilisateur'])){ ?>
                 <li class="nav-item">
-                  <a class="nav-link" href="index.php?page=7">Semainier</a>
+                  <a class="nav-link" href="index.php?page=7&semaine=0">Semainier</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="index.php?page=6">Liste des devoirs</a>
