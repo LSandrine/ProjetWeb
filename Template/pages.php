@@ -20,7 +20,7 @@ switch ($page) {
       break;
   case 4:
   	// inclure page ajouterUtilisateur
-  	include("Template/inscription.php");
+  	include("Template/modifierEvenement.php");
       break;
   case 5:
   	// inclure page inscription
@@ -37,6 +37,10 @@ switch ($page) {
     case 8:
       // inclure page semainier
       include("Template/recuperation.php");
+      break;
+    case 9:
+      // inclure page listEvent
+      include("Template/listEvenements.php");
       break;
   default : 	include_once('Template/accueil.php');
 }

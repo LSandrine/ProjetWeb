@@ -79,42 +79,26 @@ if(isset($_POST['mail'])){
 </div>
 
 </body>
-
-
-
 	<script type="text/javascript">
 	function envoyerMail()
 	 {
-
 		 	var inputMail=document.getElementById('mailSend').value;
-
 		 $.ajax({
 		 url: 'Template/recupMdp.php',
 		 type: 'post',
 		 data :{inputMail:inputMail},
 		 success: function (resultat, statutListeSectionMachine) {
 			 console.log(resultat);
-					if(resultat==1)
-						{
-
+					if(resultat==1){
 						alert("Le mail a bien été envoyé. Merci de consulter votre boite mail !");
-
-
 						}else {
 						 alert("Le mail n'a pas été envoyé ! CONTACTER UN ADMINISTRATEUR");
 						}
-
-
-
 		 },
-
 		 error: function (resultatListeSection2, statutListeSection2) {
       console.log(resultatListeSection2);
 			alert('UNE ERREUR EST SURVENUE ! CONTACTER UN ADMINISTRATEUR');
 		 }
-
 	 });
-
 	 }
-
 	</script>
