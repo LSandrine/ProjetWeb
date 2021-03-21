@@ -10,30 +10,12 @@ $ListEvent = $managerevent->getEvenementsByIdClasse($user->getUtClassId());
 $listDate = $managerevent->getAllDateByClasse($user->getUtClassId());
 $ListDevByDate = $managerevent->getEventByDateId($listDate,$user->getUtClassId());
 
-if(!isset($_POST["fait"]) && !isset($_POST["idEv"]) && !empty($_POST["fait"]) && !empty($_POST["idEv"])){
-  if($_POST["fait"]==0){$_POST["fait"]==1;}else{$_POST["fait"]==0;}
-  echo $_POST["fait"];
-  $managerlien->setDevoirsCheck($user->getUtId(),$_POST["idEv"],$_POST["fait"]);
+if(isset($_POST['fait']) == 1 && isset($_POST['idEv']) == 1 ){
+  if($_POST['fait']==0){$_POST['fait']=1;}else{$_POST['fait']=0;}
+  $managerlien->setDevoirsCheck($user->getUtId(),$_POST['idEv'],$_POST['fait']);
 }
 ?>
-<script type="text/javascript">
-  function ajaxCheck(elem){
-    console.log("COCHE");
-    var idUt = elem.parentNode.id;
-    var fait = encodeURIComponent(elem.checked);
-    var ids = encodeURIComponent(idUt);
-    if(fait != ""){
-      /*$.ajax({
-        type:"POST",
-        data: {ids : ids,fait : fait},
-        async: false,
-        success: function(){
-          console.log("Hooray, it worked!");
-        }
-      });*/
-    }
-  }
-</script>
+
 <div class="containerEvent">
   <div class="listeEvent">
     <?php foreach($ListDevByDate as $eventDate){
