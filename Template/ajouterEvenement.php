@@ -1,5 +1,6 @@
 <?php
-if(!isset($_SESSION['delegue']) && !empty($_SESSION['delegue'])){
+echo $_SESSION['delegue'];
+if(isset($_SESSION['delegue']) && !empty($_SESSION['delegue'])){
 if($_SESSION['delegue'] == 1){
 
 Configuration::setConfigurationFile('Database/configuration.ini');
