@@ -104,4 +104,13 @@ class EvenementManager{
 		}
 		return $ListEvF;
 	}
+
+	public function changeCheckEvenement($idUtilisateur, $idEvenement){
+			$req = $this->bd->prepare('INSERT INTO lienutilisateurevenement (idUtilisateur, idEvenement, fait)
+				VALUES (:idUtilisateur, :idEvenement, 1)
+				ON DUPLICATE KEY UPDATE fait = NOT fait');
+			$req->bindValue(':idUtilisateur', $idUtilisateur, PDO::PARAM_INT);
+			$req->bindValue(':idEvenement', $idEvenement, PDO::PARAM_INT);
+			$req->execute();
+	}
 }

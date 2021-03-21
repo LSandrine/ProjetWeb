@@ -94,7 +94,7 @@ if(!isset($_POST['nom']) && !isset($_POST['dateEvt']) && !isset($_POST['descEvt'
     	  $_POST['idType'] = $typeChoose->getTypeEvenementId();
     		$event = new Evenement($_POST);
     		$managerevent->add($event);
-    		?> <p> l'événement a bien été ajouté</p>
+    		?> <p style="text-align: center; font-weight: bold;"> L'événement a bien été ajouté.</p>
 <?php }
 }else{?>
   <div style='COLOR: red;text-align: center;font-size:30px;'>OUPS ... Erreur 404, page not found !</div>

@@ -62,7 +62,8 @@ table, th, td, .semainier{
 }
 
 .devoirsSemaine{
-    border: 2px solid black;
+    border: 2px solid darkblue;
+    border-radius: 5px;
 }
 
 .tdSemainier{
