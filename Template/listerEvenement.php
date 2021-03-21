@@ -74,7 +74,7 @@ if(isset($_POST['fait']) == 1 && isset($_POST['idEv']) == 1 ){
     <?php } ?>
   </div><!-- class = listeEvent -->
 </div><!-- class = containerEvent -->
-}else{?>
+<?php }else{?>
   <div style='COLOR: red;text-align: center;font-size:30px;'>OUPS ... Erreur 404, page not found !</div>
   <a class="nav-link" style='text-align: center;font-size:60px;' href="index.php?page=0">Retour à l'accueil</a>
 <?php }
