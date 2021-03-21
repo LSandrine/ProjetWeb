@@ -1,5 +1,4 @@
 <?php
-echo $_SESSION['delegue'];
 if(isset($_SESSION['delegue']) && !empty($_SESSION['delegue'])){
 if($_SESSION['delegue'] == 1){
 

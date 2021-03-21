@@ -1,10 +1,11 @@
 <?php
+if(isset($_SESSION['delegue']) && !empty($_SESSION['delegue'])){
+if($_SESSION['delegue'] == 1){
 Configuration::setConfigurationFile('Database/configuration.ini');
 $db = Database::getInstance();
 $managerevent=new EvenementManager($db);
 $manageruser=new UtilisateurManager($db);
 $managerlien=new LienUtilisateurEvenementManager($db);
-if(isset($_SESSION['idUtilisateur'])) {
 $user = $manageruser->getUtilisateurById($_SESSION['idUtilisateur']);
 $ListEvent = $managerevent->getEvenementsByIdClasse($user->getUtClassId());
 $listDate = $managerevent->getAllDateByClasse($user->getUtClassId());
@@ -73,7 +74,13 @@ if(isset($_POST['fait']) == 1 && isset($_POST['idEv']) == 1 ){
     <?php } ?>
   </div><!-- class = listeEvent -->
 </div><!-- class = containerEvent -->
-<?php }else{
-  ?>
-<p>Erreur, Vous devez être connecté pour accéder à vos devoirs.</p>
-<?php } ?>
+}else{?>
+  <div style='COLOR: red;text-align: center;font-size:30px;'>OUPS ... Erreur 404, page not found !</div>
+  <a class="nav-link" style='text-align: center;font-size:60px;' href="index.php?page=0">Retour à l'accueil</a>
+<?php }
+}else{?>
+  <div style='COLOR: red;text-align: center;font-size:30px;'>OUPS ... Erreur 404, page not found !</div>
+  <a class="nav-link" style='text-align: center;font-size:60px;' href="index.php?page=0">Retour à l'accueil</a>
+<?php
+}
+?>
