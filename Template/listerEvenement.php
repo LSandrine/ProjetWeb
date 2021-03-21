@@ -11,12 +11,9 @@ $listDate = $managerevent->getAllDateByClasse($user->getUtClassId());
 $ListDevByDate = $managerevent->getEventByDateId($listDate,$user->getUtClassId());
 
 if(!isset($_POST["fait"]) && !isset($_POST["idEv"]) && !empty($_POST["fait"]) && !empty($_POST["idEv"])){
-?> <p> YES </p> <?php
-  var_dump($_POST);
   if($_POST["fait"]==0){$_POST["fait"]==1;}else{$_POST["fait"]==0;}
   echo $_POST["fait"];
   $managerlien->setDevoirsCheck($user->getUtId(),$_POST["idEv"],$_POST["fait"]);
-  echo "jjjjjjjjjjjjjjjjjjjjjj check";
 }
 ?>
 <script type="text/javascript">
@@ -76,9 +73,9 @@ if(!isset($_POST["fait"]) && !isset($_POST["idEv"]) && !empty($_POST["fait"]) &&
           <div class="txtDevoir">
               <div class="descDevoir">
                   <span class="nomDev"><?php echo $event->getEvtNom() ?></span>
-                  <span class="matDev"><?php echo (($event->getEvtMatiere())->getMatNom()) ?></span></br>
+                  <span class="matDev">[ <?php echo (($event->getEvtMatiere())->getMatNom()) ?> ]</span></br>
                   <span class="descDev"><?php echo $event->getEvtDescription() ?></span></br>
-                  <span class="renDev"><?php echo $event->getEvtTypeRendu() ?></span></br>
+                  <span class="renDev">Rendre le devoir sur <?php echo $event->getEvtTypeRendu() ?></span></br>
                   <span class="typeDev"><?php echo $event->getEvtType()->getTypeEvenementNom() ?></span>
               </div><!-- class = descDevoir -->
               <div class="cocheDevoir" id="<?php echo $user->getUtId()."-".$event->getEvtId() ?>">
