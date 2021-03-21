@@ -40,9 +40,9 @@
                 <li class="nav-item">
                   <a class="nav-link" href="index.php?page=3">Ajouter un evenement</a>
                 </li>
-                <li class="nav-item">
+              <!--  <li class="nav-item">
                   <a class="nav-link" href="index.php?page=3">Modifier un evenement</a>
-                </li>
+                </li> -->
               <?php } ?>
                 <li id="liCo" class="nav-item">
                   <span class="mailCo"><?php echo $_SESSION['mail'];?> </span>

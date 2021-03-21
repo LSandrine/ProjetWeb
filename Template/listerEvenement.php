@@ -15,7 +15,6 @@ if(isset($_POST['fait']) == 1 && isset($_POST['idEv']) == 1 ){
   $managerlien->setDevoirsCheck($user->getUtId(),$_POST['idEv'],$_POST['fait']);
 }
 ?>
-
 <div class="containerEvent">
   <div class="listeEvent">
     <?php foreach($ListDevByDate as $eventDate){
