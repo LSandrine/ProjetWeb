@@ -45,10 +45,15 @@ class LienUtilisateurEvenementManager{
 		return $lien;
 	}
 	public function setDevoirsCheck($idUt,$idEvent,$fait){
-		$req = $this->bd->prepare('UPDATE lienutilisateurevenement SET fait = :fait WHERE idUtilisateur = :idUtilisateur AND idEvenement = :idEvenement;');
-		$req->bindValue(':idUtilisateur',$idUt,PDO::PARAM_INT);
-		$req->bindValue(':idEvenement',$idEvent,PDO::PARAM_INT);
-		$req->bindValue(':fait',$fait,PDO::PARAM_INT);
-		$req->execute();
+		if(empty($this->getDevoirsCheck($idUt,$idEvent)->getEventId())){
+			$dev = new LienUtilisateurEvenement(array('idUtilisateur' => $idUt,'idEvenement' => $idEvent,'fait' => $fait));
+			$this->add($dev);
+		}else{
+			$req = $this->bd->prepare('UPDATE lienutilisateurevenement SET fait = :fait WHERE idUtilisateur = :idUtilisateur AND idEvenement = :idEvenement;');
+			$req->bindValue(':idUtilisateur',$idUt,PDO::PARAM_INT);
+			$req->bindValue(':idEvenement',$idEvent,PDO::PARAM_INT);
+			$req->bindValue(':fait',$fait,PDO::PARAM_INT);
+			$req->execute();
+		}
 	}
 }
