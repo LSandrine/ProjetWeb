@@ -17,6 +17,7 @@
     <script src="Css/jquery/ajax.jquery.min.js"></script>
     <script src="Css/bootstrap-4.5.3-dist/js/ajax.bootstrap.js"></script>
     <link rel ="stylesheet" href="Css/style.css">
+    <script src="Css/base.js"></script>
 <!-- NAV -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">

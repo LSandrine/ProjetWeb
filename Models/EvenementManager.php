@@ -96,7 +96,6 @@ class EvenementManager{
 		foreach ($tabdate as $date){
 			$evtTmp =array();
 			foreach($ListEvD as $elem){
-				//comparaison de date à revoir
 				if($elem->getEvtDate() == $date->dateEvt){
 					$evtTmp[] = $elem;
 				}

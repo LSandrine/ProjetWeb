@@ -12,3 +12,12 @@ function getDate() {
   today = yyyy + '/' + mm + '/' + dd;
   console.log(today);
 }
+function checkImg(){
+  var cb = document.getElementById("cocheDevoir");
+  console.log(cb.checked);
+  if(cb.checked == true){
+    $("#cocheDevoir").prop("checked", false);
+  }else{
+    $("#cocheDevoir").prop("checked", true);
+  }
+}
