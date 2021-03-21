@@ -33,6 +33,10 @@ switch ($page) {
   case 7:
   	// inclure page semainier
   	include("Template/semainier.php");
+    break;
+    case 8:
+      // inclure page semainier
+      include("Template/recuperation.php");
       break;
   default : 	include_once('Template/accueil.php');
 }

@@ -41,7 +41,11 @@ if( ( isset($_POST["mail"]) AND !empty($_POST["mail"]) ) AND ( isset($_POST["mdp
      }
  }
  ?>
-  <div style="width: 500px;margin: auto;">
+
+<body>
+  <div style="width: 500px;margin: auto;border: 1px solid #9C9C9C;background-color: #EAEAEA;">
+
+
  <div class="containerAddUtilisateur">
  </div>
   <p class="h2 text-center" style="text-decoration: underline;">Formulaire d'inscription</p>

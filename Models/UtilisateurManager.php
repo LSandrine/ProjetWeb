@@ -60,4 +60,10 @@ class UtilisateurManager{
 		return $reqUser['maxId'];
 	}
 
+	public function ModifMdp($email,$mdp){
+			$req = $this->bd->prepare('UPDATE utilisateur SET mdp = ? WHERE mail = ?');
+			$req->execute(array($mdp,$email));
+	}
+
+
 }
