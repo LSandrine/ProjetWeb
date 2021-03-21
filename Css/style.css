@@ -234,12 +234,55 @@ table, th, td, .semainier{
 /*elem Devoir*/
 .descDevoir{
   width: 50%;
+  margin : 2px;
 }
 .cocheDevoir{
+  margin-top:25px;
   width: 45%;
   text-align: center;
   vertical-align: middle;
 }
-.coche{
-
+.nomDev{
+  font-size:15px;
+  /*font-style: italic;*/
+  /*color: #343a40;*/
+  /*font-family: 'Merriweather', sans-serif;*/
+}
+.matDev{
+  font-style: italic;
+  text-align:left;
+}
+/*
+input[type=checkbox]  {
+  display: none;
+}
+input[type=checkbox] + label{
+  background-image: url("images/No_done.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 15px;
+}
+input[type=checkbox]:checked + label{
+  background-image: url("images/Yes_done.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 15px;
+}*/
+.cocheButt{
+    padding: 10px;
+    padding-right: 30px;
+    padding-left: 16px;
+    border-radius: 15px;
+}
+.yescheckB{
+  background-image: url("images/Yes_done.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 45px 45px;
+}
+.nocheckB{
+  background-image: url("images/No_done.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 45px 45px;
 }
