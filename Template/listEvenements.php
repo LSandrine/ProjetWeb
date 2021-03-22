@@ -30,6 +30,7 @@ $managertype=new TypeEvenementManager($db);;
 					<td><?php echo $event->getEvtTypeRendu(); ?></td>
 				</tr>
 			</table>
+			<a href="index.php?page=4&idEvent=<?php echo $event->getEvtId() ?>">Modifier l'événement</a>
 	<?php }
 	else{ ?>
 		<h1>Liste des événements enregistrés</h1>

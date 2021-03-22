@@ -15,9 +15,19 @@ class EvenementManager{
 		$req->bindValue(':nom',$evenement->getEvtNom(),PDO::PARAM_STR);
 		$req->bindValue(':dateEvt',$evenement->getEvtDate(),PDO::PARAM_STR);
 		$req->bindValue(':description',$evenement->getEvtDescription(),PDO::PARAM_STR);
-		$req->bindValue(':idMatiere',$evenement->getEvtMatiereId(),PDO::PARAM_STR);
+		$req->bindValue(':idMatiere',$evenement->getEvtMatiereId(),PDO::PARAM_INT);
 		$req->bindValue(':typeRendu',$evenement->getEvtTypeRendu(),PDO::PARAM_STR);
 		$req->bindValue(':idClasse',$evenement->getEvtClasseId(),PDO::PARAM_INT);
+		$req->bindValue(':idType',$evenement->getEvtTypeId(),PDO::PARAM_INT);
+		$req->execute();
+	}
+	public function update($evenement){
+		$req = $this->bd->prepare('UPDATE evenement SET nom = :nom, description =:description, idMatiere=:idMatiere, typeRendu = :typeRendu, idType =:idType WHERE idEvenement = :idEvenement;');
+		$req->bindValue(':idEvenement',$evenement->getEvtId(),PDO::PARAM_INT);
+		$req->bindValue(':nom',$evenement->getEvtNom(),PDO::PARAM_STR);
+		$req->bindValue(':description',$evenement->getEvtDescription(),PDO::PARAM_STR);
+		$req->bindValue(':idMatiere',$evenement->getEvtMatiereId(),PDO::PARAM_INT);
+		$req->bindValue(':typeRendu',$evenement->getEvtTypeRendu(),PDO::PARAM_STR);
 		$req->bindValue(':idType',$evenement->getEvtTypeId(),PDO::PARAM_INT);
 		$req->execute();
 	}

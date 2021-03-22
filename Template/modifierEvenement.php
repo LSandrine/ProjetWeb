@@ -21,29 +21,33 @@ if(isset($_GET['idEvent'])){
   $event = $managerevent->getEvenementById($_GET['idEvent']);
   if(!empty($_POST)){
     $ev = $managerevent->getEvenementById($_GET['idEvent']);
-    $ev = new Evenement($_POST);
+    $ev->$nom =$_POST['nom'];
+    $ev->$description =$_POST['description'];
+    $ev->idMatiere =$_POST['idMatiere'];
+    $ev->typeRendu =$_POST['typeRendu'];
+    $ev->idType =$_POST['typeEvt'];
     $managerevent->update($ev);
   }else{
     ?>
 <div class="containerMEvent">
     <h1>Modifier l'événement <?php echo $event->getEvtNom(); ?></h1>
     <form action='#' method="POST">
-      <span class="labelC">Nom : </span><input class="champ" type="text" name="per_nom" value="<?php echo $pers->getNom(); ?>">
-      <span class="labelC">Matière : </span>
+      <span class="labelC">Nom : </span><input class="champ" type="text" name="nom" value="<?php echo $event->getEvtNom(); ?>">
+    </br><span class="labelC">Matière : </span>
         <select name="idMatiere" id="matEvt" class="form-control" >
           <?php foreach($ListMat as $matiere){ ?>
           <option value="<?php echo $matiere->getMatId() ?>"><?php echo $matiere->getMatNom(); ?></option>
           <?php } ?>
         </select>
-      <span class="labelC">Description : </span><input class="champ" type="text" name="per_mail" value="<?php echo $pers->getMail(); ?>">
-      <span class="labelC">Type de devoir : </span>
+      </br><span class="labelC">Description : </span><input class="champ" type="text" name="description" value="<?php echo $event->getEvtDescription(); ?>">
+      </br><span class="labelC">Type de devoir : </span>
       <select name="typeEvt" id="typeEvt" class="form-control" >
         <?php foreach($ListType as $type){ ?>
         <option value="<?php echo $type->getTypeEvenementId() ?>"><?php echo $type->getTypeEvenementNom(); ?></option>
         <?php } ?>
       </select>
-      <span class="labelC">Type de rendu : </span><select name="dep_num">
-      <input class="bouton" type="submit" value="Modifier">
+    </br><span class="labelC">Type de rendu : </span><input class="champ" type="text" name="typeRendu" value="<?php echo $event->getEvtTypeRendu(); ?>">
+      </br><input class="bouton" type="submit" value="Modifier">
     </form>
       <?php
   }
